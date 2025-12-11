@@ -70,12 +70,12 @@ const plans = [
   {
     name: "Plan Flexible",
     icon: Settings,
-    price: "Cotización por Equipo",
+    price: "Por Equipo",
     period: "",
     devices: "Sin mínimos ni máximos",
-    description: "¿Tienes pocos equipos o necesidades especiales? Adaptamos el costo a tu tamaño.",
+    description: "¿Tienes pocos equipos o necesidades especiales? ",
     features: [
-      "Desde Startups (5 PCs) hasta Corporaciones",
+      "Desde Startups hasta Corporaciones",
       "Pagas solo por lo que usas",
       "Servicios seleccionados según tu presupuesto",
       "Ideal para estudios profesionales y PyMEs",
