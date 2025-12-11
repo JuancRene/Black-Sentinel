@@ -1,6 +1,6 @@
 "use client"
 
-import { Check, Rocket, Zap, Crown, Settings } from "lucide-react"
+import { Check, Rocket, Zap, Crown, Settings, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
@@ -91,6 +91,7 @@ const plans = [
 
 export function Pricing() {
   const [revealed, setRevealed] = useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -117,80 +118,157 @@ export function Pricing() {
   }
 
   return (
-    <section ref={sectionRef} id="planes" className="py-16 sm:py-24 bg-black relative overflow-hidden">
-      <div className="absolute top-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] animate-float" />
+    <section ref={sectionRef} id="planes" className="py-20 sm:py-28 bg-black relative overflow-hidden">
+      {/* Efectos de fondo mejorados */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1A1A_1px,transparent_1px),linear-gradient(to_bottom,#1A1A1A_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+      
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[150px] animate-float" />
       <div
-        className="absolute bottom-1/4 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[120px] animate-float"
+        className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[180px] animate-float"
         style={{ animationDelay: "2s" }}
+      />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[120px]"
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header mejorado */}
         <div
-          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`text-center mb-16 sm:mb-20 transition-all duration-1000 ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Planes y <span className="text-primary">Precios</span>
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm text-primary font-medium">Precios transparentes</span>
+          </div>
+          
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+            Planes y <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary">Precios</span>
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-3xl mx-auto">
+          
+          <p className="text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
             Protección preventiva adaptada a tu negocio. Sin contratos largos. Sin letra chica.
           </p>
+          
           <Link
             href="/servicios"
-            className="inline-block mt-4 text-primary hover:text-primary/80 transition-colors text-sm sm:text-base underline underline-offset-4"
+            className="inline-flex items-center gap-2 mt-6 text-primary hover:text-primary/80 transition-all text-base sm:text-lg underline underline-offset-4 hover:gap-3 group"
           >
-            Ver qué incluye cada servicio →
+            Ver qué incluye cada servicio
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </Link>
         </div>
 
+        {/* Grid de planes mejorado */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-[1400px] mx-auto">
           {plans.map((plan, index) => {
             const Icon = plan.icon
+            const isHovered = hoveredIndex === index
+            
             return (
               <div
                 key={plan.name}
-                className={`relative bg-[#1A1A1A] border-2 rounded-2xl p-8 transition-all duration-700 hover:scale-105 hover-lift backdrop-blur-sm ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"} ${
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`relative bg-gradient-to-b from-[#1A1A1A] to-[#0F0F0F] border-2 rounded-3xl p-8 transition-all duration-700 ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"} ${
                   plan.highlight
-                    ? "border-primary shadow-lg shadow-primary/30 lg:-mt-4 lg:mb-0 animate-pulse-glow"
+                    ? "border-primary shadow-2xl shadow-primary/20 lg:-mt-4 lg:mb-0 scale-105 lg:scale-110"
                     : plan.isCustom
-                      ? "border-purple-500/40 hover:border-purple-500/80 bg-gradient-to-br from-purple-900/10 to-transparent"
-                      : "border-primary/20 hover:border-primary/60"
-                }`}
+                      ? "border-purple-500/40 hover:border-purple-500/80 bg-gradient-to-br from-purple-900/10 to-transparent hover:shadow-xl hover:shadow-purple-500/10"
+                      : "border-primary/20 hover:border-primary/60 hover:shadow-xl hover:shadow-primary/10"
+                } ${isHovered && !plan.highlight ? "scale-105 -translate-y-2" : ""}`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
+                {/* Efecto de brillo superior */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+                
+                {/* Glow effect en hover */}
                 {plan.highlight && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 rounded-2xl" />
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl" />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-3xl blur-xl -z-10 animate-pulse-slow" />
+                  </>
                 )}
 
+                {/* Badge premium mejorado */}
                 {plan.badge && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-black px-4 py-1 rounded-full text-sm font-bold uppercase shadow-lg shadow-primary/50 animate-bounce">
-                    {plan.badge}
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-primary blur-md animate-pulse" />
+                      <div className="relative bg-gradient-to-r from-primary via-primary/90 to-primary text-black px-6 py-2 rounded-full text-sm font-bold uppercase shadow-2xl shadow-primary/50 flex items-center gap-2">
+                        <Crown className="w-4 h-4" />
+                        {plan.badge}
+                      </div>
+                    </div>
                   </div>
                 )}
 
-                <div className="text-center mb-6 relative z-10">
-                  <div
-                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-all duration-500 hover:rotate-12 hover:scale-110 ${plan.isCustom ? "bg-purple-500/10 hover:bg-purple-500/20" : "bg-primary/10 hover:bg-primary/20"}`}
-                  >
-                    <Icon className={`w-8 h-8 ${plan.isCustom ? "text-purple-400" : "text-primary"}`} />
+                {/* Contenido de la card */}
+                <div className="text-center mb-8 relative z-10">
+                  {/* Ícono mejorado */}
+                  <div className="relative inline-flex mb-6">
+                    <div
+                      className={`absolute inset-0 rounded-2xl blur-xl transition-all duration-500 ${
+                        plan.isCustom ? "bg-purple-500/30" : "bg-primary/30"
+                      } ${isHovered ? "scale-150 opacity-100" : "scale-100 opacity-50"}`}
+                    />
+                    <div
+                      className={`relative w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                        plan.isCustom 
+                          ? "bg-gradient-to-br from-purple-500/20 to-purple-500/5" 
+                          : "bg-gradient-to-br from-primary/20 to-primary/5"
+                      } ${isHovered ? "rotate-12 scale-110" : "rotate-0 scale-100"}`}
+                    >
+                      <Icon className={`w-10 h-10 transition-all duration-500 ${plan.isCustom ? "text-purple-400" : "text-primary"} ${isHovered ? "scale-125" : "scale-100"}`} />
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{plan.description}</p>
-                  <div className="mb-2">
-                    <span className={`text-4xl font-bold ${plan.isCustom ? "text-purple-400" : "text-primary"}`}>
+
+                  <h3 className="text-2xl font-bold text-white mb-3">{plan.name}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6">{plan.description}</p>
+                  
+                  {/* Precio mejorado */}
+                  <div className="mb-3">
+                    <span className={`text-5xl font-black transition-all duration-300 ${
+                      plan.isCustom 
+                        ? "text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600" 
+                        : "text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80"
+                    } ${isHovered ? "scale-110 inline-block" : ""}`}>
                       {plan.price}
                     </span>
-                    {plan.period && <span className="text-gray-400 text-lg"> {plan.period}</span>}
+                    {plan.period && (
+                      <span className="text-gray-400 text-lg ml-1">{plan.period}</span>
+                    )}
                   </div>
-                  <p className="text-sm text-gray-500 font-medium">{plan.devices}</p>
+                  
+                  <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5">
+                    <div className={`w-2 h-2 rounded-full animate-pulse ${plan.isCustom ? "bg-purple-400" : "bg-primary"}`} />
+                    <p className="text-sm text-gray-400 font-medium">{plan.devices}</p>
+                  </div>
                 </div>
 
-                <div className="space-y-4 mb-6 relative z-10">
+                {/* Features mejorados */}
+                <div className="space-y-3 mb-8 relative z-10">
                   {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3 group/feature">
-                      <div
-                        className={`w-5 h-5 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0 transition-all duration-300 group-hover/feature:scale-110 ${plan.isCustom ? "bg-purple-500/20 group-hover/feature:bg-purple-500/30" : "bg-primary/20 group-hover/feature:bg-primary/30"}`}
-                      >
-                        <Check className={`w-3 h-3 ${plan.isCustom ? "text-purple-400" : "text-primary"}`} />
+                    <div
+                      key={idx}
+                      className="flex items-start gap-3 group/feature transition-all duration-300 hover:translate-x-1"
+                    >
+                      <div className="relative mt-0.5">
+                        <div
+                          className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                            plan.isCustom
+                              ? "bg-gradient-to-br from-purple-500/20 to-purple-500/10 group-hover/feature:from-purple-500/30 group-hover/feature:to-purple-500/20"
+                              : "bg-gradient-to-br from-primary/20 to-primary/10 group-hover/feature:from-primary/30 group-hover/feature:to-primary/20"
+                          } group-hover/feature:scale-110`}
+                        >
+                          <Check className={`w-4 h-4 ${plan.isCustom ? "text-purple-400" : "text-primary"}`} />
+                        </div>
+                        <div
+                          className={`absolute inset-0 rounded-full blur-sm transition-opacity duration-300 opacity-0 group-hover/feature:opacity-100 ${
+                            plan.isCustom ? "bg-purple-500/30" : "bg-primary/30"
+                          }`}
+                        />
                       </div>
                       <span className="text-sm text-gray-300 leading-relaxed group-hover/feature:text-white transition-colors duration-300">
                         {feature}
@@ -199,31 +277,59 @@ export function Pricing() {
                   ))}
                 </div>
 
+                {/* CTA Button mejorado */}
                 <Button
                   onClick={handleCTA}
-                  className={`w-full relative z-10 overflow-hidden group/btn transition-all duration-300 hover:scale-105 ${
+                  className={`w-full relative z-10 overflow-hidden group/btn transition-all duration-300 h-12 text-base font-semibold ${
                     plan.highlight
-                      ? "bg-primary hover:bg-primary/90 text-black"
+                      ? "bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-black shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40"
                       : plan.isCustom
-                        ? "bg-transparent border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500 hover:text-black"
-                        : "bg-transparent border-2 border-primary/50 text-primary hover:bg-primary hover:text-black"
-                  }`}
+                        ? "bg-transparent border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500 hover:text-black hover:border-purple-500"
+                        : "bg-transparent border-2 border-primary/50 text-primary hover:bg-primary hover:text-black hover:border-primary"
+                  } hover:scale-105`}
                 >
-                  <span className="relative z-10">
+                  <span className="relative z-10 flex items-center justify-center gap-2">
                     {plan.highlight ? "Solicitar demo" : plan.isCustom ? "Solicitar cotización" : "Solicitar demo"}
+                    <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                  
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/btn:translate-x-[200%] transition-transform duration-1000" />
                 </Button>
               </div>
             )
           })}
         </div>
 
-        <div className="mt-12 text-center max-w-3xl mx-auto">
+        {/* Footer mejorado */}
+        <div className="mt-16 text-center max-w-3xl mx-auto space-y-4">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-20 bg-gradient-to-r from-transparent to-primary/50" />
+            <Sparkles className="w-5 h-5 text-primary" />
+            <div className="h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
+          </div>
+          
           <p className="text-gray-400 text-sm leading-relaxed">
             ¿Tienes más equipos de los que incluye el plan? No hay problema. Puedes agregar dispositivos adicionales a
             tu plan por un costo unitario preferencial.
           </p>
+          
+          <div className="flex flex-wrap justify-center gap-6 text-xs text-gray-500 pt-4">
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-primary" />
+              <span>Cancelación flexible</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-primary" />
+              <span>Soporte 24/7</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-primary" />
+              <span>Implementación en 48hs</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
