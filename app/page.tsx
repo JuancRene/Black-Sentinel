@@ -7,7 +7,6 @@ import { HowWeWork } from "@/components/how-we-work"
 import { Pricing } from "@/components/pricing"
 import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
-import { NoxFloatButton } from "@/components/nox-float-button"
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <Pricing />
       <FinalCTA />
       <Footer />
-      <NoxFloatButton />
     </main>
   )
 }
