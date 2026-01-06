@@ -50,7 +50,7 @@ export default function TecnologiaPage() {
               ¿Qué <span className="text-primary">herramientas usamos</span>?
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Las mismas que usan los bancos y las empresas grandes, pero adaptadas para PyMEs como la tuya.
+              Las mismas que usan los bancos y las empresas grandes, pero adaptadas para negocios como el tuyo.
             </p>
           </div>
 

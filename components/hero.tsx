@@ -123,7 +123,7 @@ export function Hero() {
             className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4"
             style={{ animationDelay: "0.4s" }}
           >
-            Ciberseguridad gestionada para PyMEs que no pueden darse el lujo de parar.{" "}
+            Ciberseguridad gestionada para negocios que no pueden darse el lujo de parar.{" "}
             <span className="text-primary font-semibold">Hay personas reales monitoreando tu empresa 24/7.</span>
           </p>
 
