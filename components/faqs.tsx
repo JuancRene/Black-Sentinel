@@ -5,77 +5,62 @@ import { ChevronDown } from "lucide-react"
 
 const faqs = [
   {
-    question: "¿BlackSentinel responde a incidentes de ciberseguridad?",
+    question: "¿Qué pasa si mi negocio sufre un ataque mientras ustedes me cuidan?",
     answer:
-      "No. Nuestro enfoque es 100% preventivo. Nos especializamos en evitar incidentes mediante hardening, monitoreo continuo y detección temprana. Si estás buscando respuesta reactiva, remediación post-ataque o recuperación, ese servicio no forma parte de nuestra propuesta.",
+      "Nuestro trabajo es evitar que eso pase. Detectamos amenazas antes de que hagan daño y actuamos automáticamente para bloquearlas. Si algo llegara a pasar, te avisamos inmediatamente y te acompañamos en la solución. Pero ojo: no hacemos recuperación post-ataque (eso es otro servicio). Nosotros somos prevención pura.",
   },
   {
-    question: "¿Qué significa 'seguridad preventiva'?",
+    question: "¿Necesito saber de tecnología para usar esto?",
     answer:
-      "Es un modelo donde el objetivo principal es detectar debilidades antes de que se conviertan en ataques reales. Incluye: Hardening de sistemas, Análisis de vulnerabilidades, Monitoreo 24/7, Alertas anticipadas, y Reglas automáticas para bloquear riesgos. Con este enfoque, reducimos significativamente la posibilidad de sufrir incidentes.",
+      "Para nada. BlackSentinel está pensado para dueños de negocio que no quieren complicarse. Nosotros nos encargamos de todo lo técnico. Vos solo recibís reportes claros y nos escribís si tenés alguna duda. Así de simple.",
   },
   {
-    question: "¿Necesito tener conocimientos técnicos para usar la plataforma?",
+    question: "¿Esto es como un antivirus?",
     answer:
-      "No. BlackSentinel está pensado para empresas que no quieren perder tiempo con configuraciones. Te entregamos dashboards simples, métricas claras y reportes entendibles.",
+      "Es mucho más. Un antivirus es una herramienta que instalás y te olvidas (hasta que falla). Nosotros somos un equipo de personas + tecnología que cuida todo tu negocio: monitoreamos 24/7, actualizamos todo automáticamente, detectamos comportamientos sospechosos, y te avisamos si hay algo raro. Es la diferencia entre tener una alarma y tener un guardia de seguridad.",
   },
   {
-    question: "¿Qué tipo de empresas pueden contratar el servicio?",
+    question: "¿Qué tipo de negocios pueden contratarlos?",
     answer:
-      "Trabajamos con: Pymes, E-commerce, Empresas de software, Agencias, Estudios contables y legales, Emprendimientos con infraestructura digital. Si tu negocio depende de sistemas, datos o Internet, te sirve BlackSentinel.",
+      "Cualquier PyME que dependa de sus computadoras, datos o internet para funcionar. Trabajamos con e-commerce, estudios contables, agencias, empresas de software, comercios con sistemas, y cualquier negocio que no pueda darse el lujo de parar por un ataque informático.",
   },
   {
-    question: "¿Qué diferencia tiene BlackSentinel respecto a un antivirus o firewall común?",
+    question: "¿Cuánto tarda en estar funcionando?",
     answer:
-      "Un antivirus o firewall es una herramienta puntual. Nosotros ofrecemos un ecosistema completo de prevención, que incluye: Hardening continuo, Automatización defensiva, Monitoreo 24/7, Análisis de comportamiento, y Reportes y métricas de riesgo. Protegemos todo tu entorno, no solo un dispositivo.",
+      "Dependiendo del tamaño de tu negocio, entre 2 y 7 días ya estás protegido. Nosotros hacemos toda la instalación y configuración. No tenés que hacer nada técnico.",
   },
   {
-    question: "¿Qué pasa si detectan una amenaza?",
+    question: "¿Cómo me avisan si pasa algo?",
     answer:
-      "Te avisamos de inmediato y se ejecutan acciones preventivas automatizadas (según el plan contratado), como bloquear puertos, servicios o actividades anómalas. Recordá que no hacemos respuesta post-incidente, pero sí evitamos que avance.",
-  },
-  {
-    question: "¿Necesito instalar algo?",
-    answer:
-      "Depende del entorno. En algunos casos se instala un agente liviano de monitoreo; en otros, se trabaja vía APIs o desde la nube. Nosotros nos encargamos de toda la implementación.",
-  },
-  {
-    question: "¿Cómo son los reportes?",
-    answer:
-      "Recibirás reportes: Mensuales (Plan Starter), Semanales (Plan Pro), Diarios + estratégicos (Plan Sentinel). Incluyen: Vulnerabilidades detectadas, Riesgos priorizados, Actividad inusual, y Recomendaciones claras.",
-  },
-  {
-    question: "¿Cuánto tiempo toma la implementación?",
-    answer:
-      "En promedio: Starter: 48 horas, Pro: 3 a 5 días, Sentinel: 7 a 10 días. Depende del tamaño de tu infraestructura.",
-  },
-  {
-    question: "¿Ofrecen soporte técnico?",
-    answer:
-      "Sí. Ofrecemos soporte por WhatsApp, email y videollamada (según el plan). El soporte se enfoca en prevención, configuraciones y monitoreo, no en respuesta ante incidentes.",
-  },
-  {
-    question: "¿Puedo cambiar de plan más adelante?",
-    answer: "Sí. Podés escalar a un plan superior en cualquier momento sin perder lo ya configurado.",
-  },
-  {
-    question: "¿Funciona con servidores cloud como AWS, Azure o GCP?",
-    answer:
-      "Sí. Especializarnos en entornos cloud es parte clave del servicio. Aplicamos hardening, monitoreo y automatización específicos para cada plataforma.",
+      "Te avisamos por el canal que prefieras: WhatsApp, email, o por el dashboard. Y no te mandamos alertas crípticas llenas de códigos. Te explicamos en palabras simples qué pasó y qué hicimos al respecto.",
   },
   {
     question: "¿Hay contrato de permanencia?",
-    answer: "No. Se paga mes a mes y podés cancelar cuando quieras.",
+    answer: "No. Pagás mes a mes y podés cancelar cuando quieras. Sin letra chica, sin penalidades.",
   },
   {
-    question: "¿Qué beneficios concretos voy a notar en mi empresa?",
+    question: "¿Qué pasa si tengo más equipos de los que incluye mi plan?",
     answer:
-      "Menos incidentes, Menor exposición a ataques, Infraestructura más estable, Menos tiempo perdido por problemas técnicos, Mayor tranquilidad para vos y tu equipo, y Protección continua sin tener que estar encima.",
+      "No hay problema. Podés agregar equipos adicionales por un costo preferencial. Contactanos y te pasamos las tarifas según tu volumen.",
   },
   {
-    question: "¿Qué pasa si tengo más dispositivos de los que incluye mi plan?",
+    question: "¿Funciona si tengo todo en la nube (AWS, Azure, Google)?",
     answer:
-      "¿Tienes más equipos de los que incluye el plan? No hay problema. Puedes agregar dispositivos adicionales a tu plan por un costo unitario preferencial. Contactanos para conocer las tarifas según tu volumen de equipos adicionales.",
+      "Sí. De hecho, tenemos experiencia especial en entornos cloud. Aplicamos las mismas protecciones adaptadas a cada plataforma.",
+  },
+  {
+    question: "¿Tienen soporte? ¿Les puedo escribir si tengo una duda?",
+    answer:
+      "Sí, siempre. Tenés soporte por WhatsApp, email y videollamada (según tu plan). Y te responde una persona real que conoce tu caso, no un bot.",
+  },
+  {
+    question: "¿Puedo cambiar de plan después?",
+    answer: "Sí, podés escalar a un plan más completo en cualquier momento sin perder nada de lo ya configurado.",
+  },
+  {
+    question: "¿Qué diferencia hay entre los planes?",
+    answer:
+      "Básicamente, la cantidad de equipos cubiertos y algunas funciones extra como monitoreo de Dark Web, control de USB, o reportes ejecutivos. Pero todos los planes incluyen la protección core: antivirus inteligente, monitoreo 24/7 y bloqueo de ransomware.",
   },
 ]
 
@@ -109,8 +94,8 @@ export function FAQs() {
     <section id="faqs" className="py-24 px-4 bg-black">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Preguntas Frecuentes</h2>
-          <p className="text-xl text-gray-400">Todo lo que necesitás saber sobre BlackSentinel</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Preguntas que nos hacen seguido</h2>
+          <p className="text-xl text-gray-400">Si no encontrás tu duda acá, escribinos. Te respondemos en el día.</p>
         </div>
 
         <div className="space-y-3">

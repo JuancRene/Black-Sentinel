@@ -1,32 +1,38 @@
 "use client"
 
-import { Search, Cpu, Cog, HeadphonesIcon } from "lucide-react"
+import { ClipboardCheck, Eye, Bell, Wrench, HeadphonesIcon, Sparkles } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const steps = [
   {
-    icon: Search,
+    icon: ClipboardCheck,
     number: "01",
-    title: "Evaluamos tu infraestructura actual",
-    description: "Revisamos sistemas, configuraciones y puntos débiles.",
+    title: "Diagnóstico inicial gratuito",
+    description: "Miramos cómo está tu negocio hoy. Sin compromiso, sin letra chica. Te contamos qué encontramos.",
   },
   {
-    icon: Cpu,
+    icon: Eye,
     number: "02",
-    title: "Diseñamos un plan de seguridad preventiva a medida",
-    description: "Defensas automatizadas + monitoreo continuo.",
+    title: "Monitoreo permanente",
+    description: "Instalamos protección y empezamos a cuidarte 24/7. Vos seguís trabajando normal.",
   },
   {
-    icon: Cog,
+    icon: Bell,
     number: "03",
-    title: "Implementamos hardening y automatizaciones",
-    description: "Regla por regla, servicio por servicio.",
+    title: "Alertas tempranas",
+    description: "Si detectamos algo raro, actuamos antes de que sea un problema. Te avisamos solo si hace falta.",
+  },
+  {
+    icon: Wrench,
+    number: "04",
+    title: "Respuesta ante incidentes",
+    description: "Si pasa algo, lo resolvemos nosotros. No te dejamos solo con un problema técnico.",
   },
   {
     icon: HeadphonesIcon,
-    number: "04",
-    title: "Monitoreamos 24/7 y ajustamos constantemente",
-    description: "Siempre al día, siempre un paso adelante.",
+    number: "05",
+    title: "Acompañamiento continuo",
+    description: "Reuniones periódicas, reportes claros, y siempre alguien disponible para tus dudas.",
   },
 ]
 
@@ -64,51 +70,60 @@ export function HowWeWork() {
         <div
           className={`text-center mb-16 sm:mb-20 transition-all duration-1000 ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <div className="inline-block mb-4 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full">
-            <span className="text-primary font-semibold text-sm">PROCESO</span>
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-5 py-2.5 mb-6 backdrop-blur-sm">
+            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+            <span className="text-primary font-bold text-sm uppercase tracking-wide">Así de simple</span>
           </div>
+
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Cómo <span className="text-primary">trabajamos</span>
+            Cómo <span className="text-primary">te cuidamos</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-            Un proceso claro y estructurado para implementar seguridad preventiva en tu empresa
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
+            Sin complicaciones. Sin que tengas que entender de tecnología. Nosotros nos ocupamos de todo.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {steps.map((step, index) => {
-              const Icon = step.icon
-              return (
-                <div
-                  key={step.title}
-                  className={`relative group bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border-2 border-primary/20 rounded-3xl p-8 sm:p-10 hover:border-primary/60 transition-all duration-500 hover:scale-105 hover-lift overflow-hidden ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block" />
 
-                  <div className="absolute top-6 right-6 w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center text-black font-bold text-xl shadow-2xl shadow-primary/30 group-hover:scale-110 transition-transform duration-300 z-20">
-                    {step.number}
-                  </div>
-
-                  <div className="relative z-10">
-                    <div className="flex items-start gap-5">
-                      <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 flex-shrink-0">
-                        <Icon className="w-8 h-8 text-primary group-hover:animate-pulse" />
+            <div className="space-y-8">
+              {steps.map((step, index) => {
+                const Icon = step.icon
+                return (
+                  <div
+                    key={step.title}
+                    className={`relative group flex gap-6 items-start transition-all duration-700 ${revealed ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+                    style={{ transitionDelay: `${index * 150}ms` }}
+                  >
+                    {/* Step number */}
+                    <div className="relative z-10 flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center text-black font-bold text-xl shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
+                        {step.number}
                       </div>
-                      <div className="flex-1 pr-16">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors duration-300">
-                          {step.title}
-                        </h3>
-                        <p className="text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
-                          {step.description}
-                        </p>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border border-primary/20 rounded-2xl p-6 group-hover:border-primary/40 transition-all duration-300">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                          <Icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                            {step.title}
+                          </h3>
+                          <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                            {step.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
