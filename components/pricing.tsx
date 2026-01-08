@@ -56,7 +56,7 @@ const plans = [
     description: "Protección completa para empresas que no pueden permitirse ningún problema.",
     features: [
       "Todo lo del plan Crecimiento",
-      "Recuperación de datos garantizada",
+      "Recuperación de datos",
       "Monitoreo de contraseñas filtradas",
       "Filtrado de sitios peligrosos",
       "Reportes detallados",
