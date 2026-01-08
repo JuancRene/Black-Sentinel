@@ -19,7 +19,7 @@ const plans = [
       "Respuesta ante problemas incluida",
       "Reporte semanal en lenguaje simple",
       "Soporte por WhatsApp",
-      "Sin contratos largos",
+  
     ],
     highlight: false,
     isCustom: false,
