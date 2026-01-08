@@ -9,17 +9,38 @@ const plans = [
   {
     name: "Esencial",
     icon: Users,
-    price: "Desde USD 25",
+    price: "USD 25",
     period: "/ equipo / mes",
-    devices: "hasta 15 equipos",
-    description: "Perfecto para arrancar. Protección real para negocios chicos que quieren estar tranquilos.",
+    devices: "1 a 15 equipos",
+    description: "La opción inteligente para comenzar. Protección completa sin complicaciones.",
     features: [
-      "Protección completa en cada equipo",
-      "Monitoreo 24/7 ",
-      "Protección de emails",
-      "Control de productividad ",
-      "Reportes detallados",
-      "Soporte por WhatsApp",
+      "Protección EDR completa",
+      "Monitoreo 24/7 humano (Lun-Vie)",
+      "Soporte técnico vía WhatsApp",
+      "Protección de emails (Mail Assure)",
+      "Control de productividad",
+      "Reportes semanales",
+      "Actualizaciones críticas",
+    ],
+    highlight: true,
+    isCustom: false,
+    popular: true,
+    cta: "Empezar ahora",
+    badge: "MÁS ELEGIDO",
+  },
+  {
+    name: "Crecimiento",
+    icon: Rocket,
+    price: "USD 800",
+    period: "/ mes",
+    devices: "hasta 35 equipos",
+    description: "Para negocios que están escalando y necesitan más control.",
+    features: [
+      "Todo lo de Esencial",
+      "Monitoreo 24/7 humano completo",
+      "Soporte técnico prioritario",
+      "Actualizaciones de SO y Apps",
+      "Alertas inteligentes",
     ],
     highlight: false,
     isCustom: false,
@@ -27,42 +48,26 @@ const plans = [
     cta: "Empezar ahora",
   },
   {
-    name: "Crecimiento",
-    icon: Rocket,
-    price: "USD 800",
-    period: "/ mes",
-    badge: "Más elegido",
-    devices: "hasta 35 equipos",
-    description: "Para negocios que están creciendo y necesitan más tranquilidad.",
-    features: [
-      "Todo lo del plan Esencial",
-      "Actualizaciones automáticas",
-      "Alertas inteligentes",
-      "Soporte 24/7",
-    ],
-    highlight: true,
-    isCustom: false,
-    popular: true,
-    cta: "Diagnóstico gratuito",
-  },
-  {
     name: "Profesional",
     icon: Zap,
     price: "USD 1.500",
     period: "/ mes",
     devices: "hasta 75 equipos",
-    description: "Protección completa para empresas que no pueden permitirse ningún problema.",
+    description: "Protección avanzada para empresas que no pueden parar.",
     features: [
-      "Todo lo del plan Crecimiento",
-      "Recuperación de datos",
-      "Monitoreo de contraseñas filtradas",
-      "Filtrado de sitios peligrosos",
+      "Todo lo de Crecimiento",
+      "Monitoreo 24/7 humano y automático",
       "Soporte 24/7 por teléfono",
+      "Reportes mensuales detallados",
+      "Gestión total de parches",
+      "Filtrado web (bloqueo de sitios)",
+      "Backup y recuperación de datos",
+      "Monitoreo de contraseñas (Dark Web)",
     ],
     highlight: false,
     isCustom: false,
     popular: false,
-    cta: "Hablar con el equipo",
+    cta: "Empezar ahora",
   },
   {
     name: "Corporativo",
@@ -70,20 +75,12 @@ const plans = [
     price: "A medida",
     period: "",
     devices: "sin límites",
-    badge: "Personalizado",
-    description: "¿Tienes más equipos o necesidades especiales? Armamos algo a tu medida.",
-    features: [
-      "Todo lo del plan Profesional",
-      "Configuración personalizada",
-      "Reuniones de estrategia",
-      "Capacitación para tu equipo",
-      "Gerente de cuenta dedicado",
-      "SLA garantizado",
-    ],
+    description: "Solución personalizada para grandes organizaciones.",
+    features: ["Todo lo de Profesional", "Gerente dedicado", "SLA personalizado", "Auditoría continua"],
     highlight: false,
     isCustom: true,
     popular: false,
-    cta: "Pedir cotización",
+    cta: "Cotizar",
   },
 ]
 
@@ -164,25 +161,25 @@ export function Pricing() {
                 key={plan.name}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative bg-gradient-to-b from-[#1A1A1A] to-[#0F0F0F] border-2 rounded-3xl p-6 transition-all duration-500 ${
+                className={`group relative rounded-3xl p-6 transition-all duration-500 ${
                   revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                 } ${
                   plan.highlight
-                    ? "border-primary shadow-xl shadow-primary/20 lg:scale-105 z-10"
-                    : plan.isCustom
-                      ? "border-purple-500/30 hover:border-purple-500/60"
-                      : "border-primary/20 hover:border-primary/50"
-                } ${isHovered && !plan.highlight ? "scale-105 -translate-y-2 shadow-xl" : ""}`}
+                    ? "bg-gradient-to-b from-[#1A1A1A] to-[#0F0F0F] border-2 border-primary shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_50px_rgba(6,182,212,0.5)] hover:scale-105"
+                    : index === 1
+                      ? "bg-gradient-to-b from-orange-500/5 via-[#1A1A1A] to-[#0F0F0F] border-2 border-orange-500/30 hover:border-orange-500/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.25)] hover:scale-[1.02]"
+                      : index === 2
+                        ? "bg-gradient-to-b from-blue-500/5 via-[#1A1A1A] to-[#0F0F0F] border-2 border-blue-500/30 hover:border-blue-500/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] hover:scale-[1.02]"
+                        : "bg-gradient-to-b from-purple-500/5 via-[#1A1A1A] to-[#0F0F0F] border-2 border-purple-500/30 hover:border-purple-500/60 hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]"
+                } ${isHovered && plan.highlight ? "scale-105" : ""}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {plan.badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
                     <div
                       className={`${
-                        plan.isCustom
-                          ? "bg-gradient-to-r from-purple-500 to-pink-500"
-                          : "bg-gradient-to-r from-primary to-primary/90"
-                      } text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase shadow-lg`}
+                        plan.isCustom ? "bg-gradient-to-r from-purple-500 to-pink-500" : "bg-primary"
+                      } text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase shadow-lg whitespace-nowrap`}
                     >
                       {plan.badge}
                     </div>
@@ -193,12 +190,26 @@ export function Pricing() {
                   <div className="relative inline-flex mb-4">
                     <div
                       className={`w-16 h-16 rounded-2xl flex items-center justify-center border transition-all duration-500 ${
-                        plan.isCustom
-                          ? "bg-gradient-to-br from-purple-500/20 to-purple-500/5 border-purple-500/30"
-                          : "bg-gradient-to-br from-primary/20 to-primary/5 border-primary/30"
+                        plan.highlight
+                          ? "bg-gradient-to-br from-primary/20 to-primary/5 border-primary"
+                          : index === 1
+                            ? "bg-gradient-to-br from-orange-500/20 to-orange-500/5 border-orange-500/50 group-hover:border-orange-500"
+                            : index === 2
+                              ? "bg-gradient-to-br from-blue-500/20 to-blue-500/5 border-blue-500/50 group-hover:border-blue-500"
+                              : "bg-gradient-to-br from-purple-500/20 to-purple-500/5 border-purple-500/50 group-hover:border-purple-500"
                       }`}
                     >
-                      <Icon className={`w-8 h-8 ${plan.isCustom ? "text-purple-400" : "text-primary"}`} />
+                      <Icon
+                        className={`w-8 h-8 transition-colors ${
+                          plan.highlight
+                            ? "text-primary"
+                            : index === 1
+                              ? "text-orange-400 group-hover:text-orange-300"
+                              : index === 2
+                                ? "text-blue-400 group-hover:text-blue-300"
+                                : "text-purple-400 group-hover:text-purple-300"
+                        }`}
+                      />
                     </div>
                   </div>
 
@@ -206,37 +217,79 @@ export function Pricing() {
                   <p className="text-gray-400 text-sm mb-4 min-h-[2.5rem]">{plan.description}</p>
 
                   <div className="mb-2">
-                    <span className={`text-3xl font-black ${plan.isCustom ? "text-purple-400" : "text-primary"}`}>
+                    <span
+                      className={`text-4xl font-black ${
+                        plan.highlight
+                          ? "text-primary"
+                          : index === 1
+                            ? "text-orange-400"
+                            : index === 2
+                              ? "text-blue-400"
+                              : "text-purple-400"
+                      }`}
+                    >
                       {plan.price}
                     </span>
                     {plan.period && <span className="text-gray-400 text-sm ml-1">{plan.period}</span>}
                   </div>
 
-                  <div className="inline-flex items-center gap-2 bg-black/30 border border-white/10 rounded-full px-3 py-1 text-xs text-gray-400">
-                    <div className={`w-1.5 h-1.5 rounded-full ${plan.isCustom ? "bg-purple-400" : "bg-primary"}`} />
+                  <div
+                    className={`inline-flex items-center gap-2 bg-black/40 border rounded-full px-3 py-1 text-xs ${
+                      plan.highlight
+                        ? "border-primary/30 text-primary"
+                        : index === 1
+                          ? "border-orange-500/30 text-orange-400"
+                          : index === 2
+                            ? "border-blue-500/30 text-blue-400"
+                            : "border-purple-500/30 text-purple-400"
+                    }`}
+                  >
+                    <div
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        plan.highlight
+                          ? "bg-primary"
+                          : index === 1
+                            ? "bg-orange-400"
+                            : index === 2
+                              ? "bg-blue-400"
+                              : "bg-purple-400"
+                      }`}
+                    />
                     {plan.devices}
                   </div>
                 </div>
 
                 <div className="space-y-3 mb-6">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <Check
-                        className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.isCustom ? "text-purple-400" : "text-primary"}`}
-                      />
-                      <span className="text-sm text-gray-300">{feature}</span>
-                    </div>
-                  ))}
+                  {plan.features.map((feature, idx) => {
+                    return (
+                      <div key={idx} className="flex items-start gap-2">
+                        <Check
+                          className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                            plan.highlight
+                              ? "text-primary"
+                              : index === 1
+                                ? "text-orange-400"
+                                : index === 2
+                                  ? "text-blue-400"
+                                  : "text-purple-400"
+                          }`}
+                        />
+                        <span className="text-sm text-gray-300">{feature}</span>
+                      </div>
+                    )
+                  })}
                 </div>
 
                 <Button
                   onClick={handleCTA}
                   className={`w-full font-bold transition-all duration-300 h-12 ${
                     plan.highlight
-                      ? "bg-primary hover:bg-primary/90 text-black shadow-lg shadow-primary/30"
-                      : plan.isCustom
-                        ? "bg-transparent border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500 hover:text-black"
-                        : "bg-transparent border-2 border-primary/50 text-primary hover:bg-primary hover:text-black"
+                      ? "bg-primary hover:bg-primary/90 text-black shadow-lg shadow-primary/50 hover:shadow-primary/70"
+                      : index === 1
+                        ? "bg-orange-500/10 border-2 border-orange-500/50 text-orange-400 hover:bg-orange-500 hover:text-black hover:border-orange-500"
+                        : index === 2
+                          ? "bg-blue-500/10 border-2 border-blue-500/50 text-blue-400 hover:bg-blue-500 hover:text-black hover:border-blue-500"
+                          : "bg-transparent border-2 border-purple-500/50 text-purple-400 hover:bg-purple-500 hover:text-black"
                   } hover:scale-105`}
                 >
                   {plan.cta}
