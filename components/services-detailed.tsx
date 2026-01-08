@@ -168,7 +168,7 @@ export function ServicesDetailed() {
         </div>
 
         {/* Grid de servicios */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             const isHovered = hoveredIndex === index
