@@ -18,8 +18,15 @@ const comparisonData = [
     category: "HIGIENE Y MEJORAS",
     icon: Zap,
     features: [
+      {
+        name: "Control de Productividad",
+        esencial: true,
+        crecimiento: true,
+        profesional: true,
+        corporativo: "Opcional",
+      },
       { name: "Gestión de Parches", esencial: false, crecimiento: true, profesional: true, corporativo: "Opcional" },
-      { name: "Seguridad de Email", esencial: false, crecimiento: true, profesional: true, corporativo: "Opcional" },
+      { name: "Seguridad de Email", esencial: true, crecimiento: true, profesional: true, corporativo: "Opcional" },
       { name: "Filtrado Web y DNS", esencial: false, crecimiento: true, profesional: true, corporativo: "Opcional" },
       {
         name: "Auditoría de Contraseñas",

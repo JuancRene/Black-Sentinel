@@ -1,6 +1,6 @@
 "use client"
 
-import { Eye, Server, Search, Shield, Zap, FileText, CheckCircle2, Sparkles, Heart } from "lucide-react"
+import { Eye, Server, Search, Shield, Zap, FileText, CheckCircle2, Sparkles, Heart, Ban } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const services = [
@@ -87,6 +87,21 @@ const services = [
       "Recomendaciones prácticas",
     ],
     ideal: "Dueños de negocio que quieren estar informados",
+    color: "cyan",
+  },
+  {
+    icon: Ban,
+    title: "Control de productividad",
+    description:
+      "Bloqueamos sitios que distraen a tus empleados durante el horario laboral. Más foco, menos distracciones.",
+    features: [
+      "Bloqueo de redes sociales",
+      "Filtrado de contenido no laboral",
+      "Horarios personalizables",
+      "Reportes de uso de internet",
+      "Listas blancas y negras",
+    ],
+    ideal: "Negocios que quieren mejorar la productividad",
     color: "cyan",
   },
 ]
