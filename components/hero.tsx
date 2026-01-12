@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, Phone } from "lucide-react"
+import { ArrowRight, Shield, Phone, Sparkles, CheckCircle2 } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useRef } from "react"
 
@@ -12,13 +12,15 @@ export function Hero() {
     window.open("https://tally.so/r/b5Z2A7", "_blank")
   }
 
-  // Animación de partículas
+  // --- LÓGICA DE PARTÍCULAS OPTIMIZADA ---
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
 
     const ctx = canvas.getContext("2d")
     if (!ctx) return
+
+    let animationFrameId: number
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
@@ -33,19 +35,22 @@ export function Hero() {
       speedX: number
       speedY: number
       opacity: number
+      pulse: number
     }
 
     const particles: Particle[] = []
-    const particleCount = 50
+    // Ajustamos cantidad según dispositivo
+    const particleCount = window.innerWidth < 768 ? 30 : 60
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         size: Math.random() * 2 + 0.5,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.3 + 0.1,
+        speedX: (Math.random() - 0.5) * 0.2, // Velocidad más suave
+        speedY: (Math.random() - 0.5) * 0.2,
+        opacity: Math.random() * 0.5 + 0.1,
+        pulse: Math.random() * 0.02,
       })
     }
 
@@ -58,181 +63,152 @@ export function Hero() {
         particle.x += particle.speedX
         particle.y += particle.speedY
 
+        // Rebotar suavemente
         if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1
         if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1
 
+        // Efecto de parpadeo (Pulse)
+        particle.opacity += particle.pulse
+        if (particle.opacity >= 0.6 || particle.opacity <= 0.1) particle.pulse *= -1
+
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
+        // Color Cyan exacto de la marca (#0AB9C3)
         ctx.fillStyle = `rgba(10, 185, 195, ${particle.opacity})`
         ctx.fill()
       })
 
-      requestAnimationFrame(animate)
+      animationFrameId = requestAnimationFrame(animate)
     }
 
     animate()
 
     window.addEventListener("resize", resizeCanvas)
-    return () => window.removeEventListener("resize", resizeCanvas)
+    return () => {
+      window.removeEventListener("resize", resizeCanvas)
+      cancelAnimationFrame(animationFrameId)
+    }
   }, [])
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Canvas de partículas - ahora más visible */}
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-[1]" style={{ opacity: 0.4 }} />
-
-      {/* Grid de fondo animado */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1A1A_1px,transparent_1px),linear-gradient(to_bottom,#1A1A1A_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_110%)]" />
-
-      {/* Efectos de glow mejorados */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px]" />
+      {/* --- FONDO --- */}
+      <div className="absolute inset-0 bg-[#050505]">
+        {/* Canvas de partículas */}
+        <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-60" />
+        
+        {/* Grid Técnico */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
+        
+        {/* Luz Ambiental (Spotlight superior) */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#0AB9C3]/10 blur-[120px] rounded-full pointer-events-none" />
+      </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-        <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
-          {/* Logo mejorado con más efectos */}
-          <div className="flex justify-center mb-6 sm:mb-8 animate-fade-in">
-            <div className="relative animate-float group">
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center">
-                {/* Círculo de fondo con pulso */}
-                <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse" />
+        <div className="max-w-5xl mx-auto text-center">
+          
+          {/* --- BADGE SUPERIOR --- */}
+          <div className="flex justify-center mb-8 animate-fade-in opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0AB9C3]/30 bg-[#0AB9C3]/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(10,185,195,0.2)]">
+               <Shield className="w-3 h-3 text-[#0AB9C3]" />
+               <span className="text-xs font-semibold text-[#0AB9C3] uppercase tracking-wider">Sistema de Protección Activo</span>
+            </div>
+          </div>
 
+          {/* --- LOGO ANIMADO (HUD) --- */}
+          <div className="flex justify-center mb-10 relative animate-fade-in opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
+            <div className="relative group cursor-default">
+              {/* Anillos de radar */}
+              <div className="absolute inset-0 rounded-full border border-[#0AB9C3]/20 animate-[spin_10s_linear_infinite]" />
+              <div className="absolute -inset-4 rounded-full border border-[#0AB9C3]/10 border-dashed animate-[spin_15s_linear_infinite_reverse]" />
+              
+              {/* Glow central */}
+              <div className="absolute inset-0 bg-[#0AB9C3]/20 blur-2xl rounded-full animate-pulse" />
+              
+              {/* Logo Image */}
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full border border-white/5">
                 <Image
                   src="/logo-blacksentinel-icon.png"
                   alt="BlackSentinel"
                   width={160}
                   height={160}
-                  className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_30px_rgba(10,185,195,0.6)]"
+                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_0_15px_rgba(10,185,195,0.8)]"
                 />
               </div>
             </div>
           </div>
 
-          {/* Título con efecto de gradiente animado */}
-          <div className="space-y-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-              <span className="block">Cuidamos tu negocio</span>
-              <span className="block text-primary">para que puedas trabajar tranquilo</span>
+          {/* --- TITULO PRINCIPAL --- */}
+          <div className="space-y-6 mb-8 animate-fade-in opacity-0 [animation-delay:600ms] [animation-fill-mode:forwards]">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.9]">
+              Tu negocio, <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-zinc-500">
+                blindado.
+              </span>
             </h1>
+            
+            <p className="text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto leading-relaxed font-light">
+              Monitoreo de ciberseguridad gestionado por humanos e IA.
+              <span className="block text-white font-medium mt-2">
+                 Detectamos. Bloqueamos. Te dejamos trabajar.
+              </span>
+            </p>
           </div>
 
-          {/* Descripción mejorada */}
-          <p
-            className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in px-4"
-            style={{ animationDelay: "0.4s" }}
-          >
-            Ciberseguridad gestionada para negocios que no pueden darse el lujo de parar.{" "}
-            <span className="text-primary font-semibold">Hay personas reales monitoreando tu empresa 24/7.</span>
-          </p>
-
-          {/* CTA mejorado con más efectos */}
+          {/* --- CTAS --- */}
           <div
-            className="pt-6 sm:pt-10 animate-fade-in flex flex-col sm:flex-row items-center justify-center gap-4"
-            style={{ animationDelay: "0.6s" }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in opacity-0 [animation-delay:800ms] [animation-fill-mode:forwards]"
           >
             <Button
               size="lg"
               onClick={handleCTA}
-              className="relative bg-primary hover:bg-primary/90 text-black font-bold text-lg sm:text-xl px-8 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all duration-300 hover:scale-105 group overflow-hidden"
+              className="relative h-14 px-8 bg-[#0AB9C3] hover:bg-[#09a0a9] text-black font-bold text-lg rounded-xl shadow-[0_0_20px_-5px_rgba(10,185,195,0.5)] hover:shadow-[0_0_30px_-5px_rgba(10,185,195,0.7)] transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto overflow-hidden group"
             >
-              {/* Efecto shimmer */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-
-              <span className="relative z-10 flex items-center gap-2">
-                <Shield className="w-5 h-5" />
-                Diagnóstico gratuito
-              </span>
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
+               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 skew-y-12" />
+               <span className="relative flex items-center gap-2">
+                 <Shield className="w-5 h-5" />
+                 Diagnóstico Gratuito
+                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+               </span>
             </Button>
 
             <Button
               size="lg"
               variant="outline"
               onClick={() => window.open("https://wa.me/5493416369108", "_blank")}
-              className="border-2 border-primary/50 text-primary hover:bg-primary hover:text-black font-bold text-lg sm:text-xl px-8 sm:px-10 py-6 sm:py-7 rounded-2xl transition-all duration-300 hover:scale-105 group"
+              className="h-14 px-8 border-zinc-700 text-white hover:bg-zinc-800 hover:text-white font-medium text-lg rounded-xl transition-all duration-300 w-full sm:w-auto hover:-translate-y-1"
             >
-              <Phone className="w-5 h-5 mr-2" />
+              <Phone className="w-5 h-5 mr-2 text-[#0AB9C3]" />
               Hablar por WhatsApp
             </Button>
           </div>
 
-          {/* Mensaje de confianza enfocado en el servicio humano */}
-          <p className="text-sm text-gray-500 animate-fade-in" style={{ animationDelay: "0.7s" }}>
-            Sin compromiso - Sin contratos largos - Respuesta en menos de 24hs
-          </p>
-
-          {/* Nuevos badges enfocados en el apoyo humano, no en la tecnología */}
+          {/* --- TRUST BADGES (Glass bar) --- */}
           <div
-            className="flex justify-center gap-6 sm:gap-10 pt-8 sm:pt-10 text-sm sm:text-base text-gray-400 animate-fade-in flex-wrap"
-            style={{ animationDelay: "0.8s" }}
+            className="mt-16 inline-flex flex-wrap justify-center gap-4 sm:gap-8 px-6 py-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm animate-fade-in opacity-0 [animation-delay:1000ms] [animation-fill-mode:forwards]"
           >
-            <div className="flex items-center gap-2 group hover:text-primary transition-colors cursor-default">
-              <div className="relative">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            {[
+              { text: "Soporte Humano Real", icon: CheckCircle2 },
+              { text: "Instalación en 48hs", icon: Sparkles },
+              { text: "Sin contratos largos", icon: Shield },
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2 group cursor-default">
+                <item.icon className="w-5 h-5 text-[#0AB9C3] group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">
+                  {item.text}
+                </span>
               </div>
-              <span className="font-medium">Personas reales</span>
-            </div>
-            <div className="flex items-center gap-2 group hover:text-primary transition-colors cursor-default">
-              <div className="relative">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              </div>
-              <span className="font-medium">Monitoreo 24/7</span>
-            </div>
-            <div className="flex items-center gap-2 group hover:text-primary transition-colors cursor-default">
-              <div className="relative">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              </div>
-              <span className="font-medium">Actuamos por vos</span>
-            </div>
+            ))}
           </div>
 
-          {/* Indicador de scroll */}
-          <div className="pt-10 animate-bounce" style={{ animationDelay: "1s" }}>
-            <div className="inline-flex flex-col items-center gap-2 text-gray-500 hover:text-primary transition-colors cursor-pointer">
-              <span className="text-xs uppercase tracking-wider">Conocé más</span>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </div>
-          </div>
         </div>
       </div>
+      
+      {/* Decorative Gradient Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] to-transparent z-10" />
     </section>
   )
 }
-
-// Agregar estos estilos en globals.css si no existen:
-/*
-@keyframes scan {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-}
-
-.animate-scan {
-  animation: scan 3s ease-in-out infinite;
-}
-
-@keyframes gradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.animate-gradient {
-  animation: gradient 3s ease infinite;
-}
-*/

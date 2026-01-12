@@ -1,274 +1,217 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
+@layer base {
+  :root {
+    /* --- COLOR PALETTE: BLACK SENTINEL (Dark Mode Default) --- */
+    
+    /* Fondo base: #050505 (Deep Cyber Black) */
+    --background: 0 0% 2%; 
+    --foreground: 0 0% 98%;
 
-/* Fixed to include all required shadcn/ui styles with BlackSentinel branding */
-:root {
-  /* BlackSentinel Brand - Black background with turquoise accents */
-  --background: oklch(0 0 0); /* Pure black */
-  --foreground: oklch(1 0 0); /* Pure white */
-  --card: oklch(0.102 0 0); /* Dark gray #1A1A1A */
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.102 0 0);
-  --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.688 0.145 201.69); /* Turquoise #0AB9C3 */
-  --primary-foreground: oklch(0 0 0); /* Black text on turquoise */
-  --secondary: oklch(0.164 0 0); /* Darker gray */
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.164 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.688 0.145 201.69); /* Turquoise accent */
-  --accent-foreground: oklch(0 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.164 0 0);
-  --input: oklch(0.164 0 0);
-  --ring: oklch(0.688 0.145 201.69); /* Turquoise ring */
-  --chart-1: oklch(0.688 0.145 201.69); /* Turquoise */
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.75rem;
-  --sidebar: oklch(0 0 0);
-  --sidebar-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.688 0.145 201.69);
-  --sidebar-primary-foreground: oklch(0 0 0);
-  --sidebar-accent: oklch(0.102 0 0);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.164 0 0);
-  --sidebar-ring: oklch(0.688 0.145 201.69);
-}
+    /* Tarjetas y Paneles: #0A0A0A */
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
 
-.dark {
-  --background: oklch(0 0 0);
-  --foreground: oklch(1 0 0);
-  --card: oklch(0.102 0 0);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.102 0 0);
-  --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.688 0.145 201.69);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.164 0 0);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.164 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.688 0.145 201.69);
-  --accent-foreground: oklch(0 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.164 0 0);
-  --input: oklch(0.164 0 0);
-  --ring: oklch(0.688 0.145 201.69);
-  --chart-1: oklch(0.688 0.145 201.69);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0 0 0);
-  --sidebar-foreground: oklch(1 0 0);
-  --sidebar-primary: oklch(0.688 0.145 201.69);
-  --sidebar-primary-foreground: oklch(0 0 0);
-  --sidebar-accent: oklch(0.164 0 0);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.164 0 0);
-  --sidebar-ring: oklch(0.688 0.145 201.69);
-}
+    /* BRAND COLOR: #0AB9C3 (Cyber Cyan) */
+    /* Convertido a HSL para permitir opacidades (ej: bg-primary/50) */
+    --primary: 183 90% 40%;
+    --primary-foreground: 0 0% 9%;
 
-@theme inline {
-  --font-sans: "Inter", "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+    /* Secundarios (Grises Técnicos) */
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 183 90% 40%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    
+    /* El anillo de foco usa el color primario */
+    --ring: 183 90% 40%; 
+    
+    --radius: 0.75rem;
+
+    /* Gráficos y Charts (Para Dashboards) */
+    --chart-1: 183 90% 40%; /* Cyan */
+    --chart-2: 160 60% 45%; /* Green */
+    --chart-3: 30 80% 55%;  /* Orange */
+    --chart-4: 280 65% 60%; /* Purple */
+    --chart-5: 340 75% 55%; /* Pink */
+  }
+
+  .dark {
+    /* Aseguramos que el modo oscuro use los mismos valores */
+    --background: 0 0% 2%;
+    --foreground: 0 0% 98%;
+    /* ... (resto de variables heredadas de :root) */
+  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-
+  
   html {
     scroll-behavior: smooth;
+    background-color: #050505; 
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* --- SCROLLBAR PERSONALIZADO (Estilo Hacker) --- */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0AB9C3; /* Se ilumina al tocarlo */
+  }
+
+  /* --- SELECCIÓN DE TEXTO --- */
+  ::selection {
+    background-color: rgba(10, 185, 195, 0.3);
+    color: #ffffff;
   }
 }
 
-/* Custom scrollbar for BlackSentinel branding */
-::-webkit-scrollbar {
-  width: 10px;
-}
+/* ========================================
+   UTILIDADES Y ANIMACIONES
+   ======================================== */
 
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #0ab9c3;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #0899a1;
-}
-
-/* Adding modern animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@layer utilities {
+  /* Ocultar scrollbar pero permitir scroll */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-}
 
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
+  /* Efecto Glassmorphism Refinado */
+  .glass-effect {
+    @apply bg-black/40 backdrop-blur-md border border-[#0AB9C3]/10;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+
+  /* Efecto Hover Lift */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0AB9C3]/20;
+  }
+  
+  /* Text Glow */
+  .text-glow {
+    text-shadow: 0 0 20px rgba(10, 185, 195, 0.5);
   }
 }
 
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+/* --- KEYFRAMES --- */
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
 
 @keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 1;
-    filter: drop-shadow(0 0 10px rgba(10, 185, 195, 0.5));
+  0%, 100% { 
+    opacity: 0.5; 
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(10, 185, 195, 0);
   }
-  50% {
-    opacity: 0.8;
-    filter: drop-shadow(0 0 20px rgba(10, 185, 195, 0.8));
+  50% { 
+    opacity: 1; 
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(10, 185, 195, 0.3);
   }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 @keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
-  opacity: 0;
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.animate-slide-in-left {
-  animation: slide-in-left 0.8s ease-out forwards;
-  opacity: 0;
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-slide-in-right {
-  animation: slide-in-right 0.8s ease-out forwards;
-  opacity: 0;
-}
+/* --- CLASES DE ANIMACIÓN --- */
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-scan {
+  animation: scan 4s linear infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
 }
 
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient-shift 5s ease infinite;
+  animation: gradient-shift 6s ease infinite;
 }
 
-/* Glass morphism effect */
-.glass-effect {
-  background: rgba(26, 26, 26, 0.4);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(10, 185, 195, 0.1);
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
 }
 
-/* Hover effects */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.animate-fade-in {
+  animation: fade-in-up 0.8s ease-out forwards;
 }
 
-.hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(10, 185, 195, 0.2);
-}
-
-/* Scroll reveal animation */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.scroll-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Delays para animaciones en cascada */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }

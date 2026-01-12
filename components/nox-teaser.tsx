@@ -1,14 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Eye, Shield, Clock } from "lucide-react"
+import { ArrowRight, Eye, Shield, Clock, Zap, Cpu, Activity } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
 export function NoxTeaser() {
   const [revealed, setRevealed] = useState(false)
-  const [isImageHovered, setIsImageHovered] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -33,215 +32,149 @@ export function NoxTeaser() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 overflow-hidden bg-gradient-to-b from-black via-[#0A0A0A] to-black"
+      className="relative py-24 sm:py-32 overflow-hidden bg-[#050505]"
     >
-      {/* Background Effects Mejorados */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1A1A_1px,transparent_1px),linear-gradient(to_bottom,#1A1A1A_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
-
-      {/* Glows múltiples */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] animate-float" />
-      <div
-        className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px] animate-float"
-        style={{ animationDelay: "2s" }}
-      />
-
-      {/* Líneas decorativas */}
-      <div className="absolute top-0 left-1/4 w-px h-24 bg-gradient-to-b from-primary/50 to-transparent" />
-      <div className="absolute bottom-0 right-1/4 w-px h-24 bg-gradient-to-t from-primary/50 to-transparent" />
+      {/* --- BACKGROUND LAYERS --- */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
+      
+      {/* Luz ambiental detrás de NOX */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#0AB9C3]/10 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
-          {/* Left Side - Text Mejorado */}
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
+          
+          {/* --- LEFT SIDE: TEXTO --- */}
           <div
             className={`space-y-8 text-center md:text-left transition-all duration-1000 ${
               revealed ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
             }`}
           >
-            {/* Badge superior */}
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2 backdrop-blur-sm">
-              <Eye className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-sm font-semibold text-primary">Conoce a tu vigilante IA</span>
+            {/* Badge de Sistema */}
+            <div className="inline-flex items-center gap-2 bg-[#0AB9C3]/5 border border-[#0AB9C3]/20 rounded-full px-4 py-1.5 backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0AB9C3] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0AB9C3]"></span>
+              </span>
+              <span className="text-xs font-mono font-semibold text-[#0AB9C3] uppercase tracking-wider">Entidad de Defensa IA</span>
             </div>
 
-            {/* Título principal */}
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight">
-              No estás solo.
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary animate-gradient bg-[length:200%_auto]">
-                Hay alguien cuidando tu espalda.
+            {/* Título */}
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+              No estás solo. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600">
+                Alguien cuida tu espalda.
               </span>
             </h2>
 
-            {/* Descripción mejorada */}
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 leading-relaxed">
-              Conocé a{" "}
-              <span className="relative inline-block">
-                <span className="font-black text-primary text-2xl sm:text-3xl">NOX</span>
-                <Shield className="absolute -top-1 -right-5 w-4 h-4 text-primary animate-pulse" />
-              </span>
-              , nuestro asistente que monitorea tu negocio mientras vos dormís, descansás o atendés a tus clientes.
+            {/* Descripción */}
+            <p className="text-lg text-zinc-400 leading-relaxed max-w-lg mx-auto md:mx-0">
+              Conocé a <strong className="text-white">NOX</strong>, el núcleo de inteligencia que vive dentro de BlackSentinel. 
+              Él no duerme, no se distrae y procesa millones de amenazas por segundo para que vos puedas descansar.
             </p>
 
-            {/* Features rápidas */}
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              {[
-                { icon: Eye, text: "Vigila 24/7" },
-                { icon: Shield, text: "Detecta problemas" },
-                { icon: Clock, text: "Nunca descansa" },
-              ].map((feature, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 px-4 py-2 bg-black/50 backdrop-blur-sm border border-primary/20 rounded-full hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
-                >
-                  <feature.icon className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-gray-400">{feature.text}</span>
-                </div>
-              ))}
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+               {[
+                 { icon: Eye, title: "Visión Global", desc: "Monitoreo 24/7" },
+                 { icon: Zap, title: "Reacción Instantánea", desc: "Bloqueo en <1ms" },
+                 { icon: Cpu, title: "Aprendizaje Continuo", desc: "IA Adaptativa" },
+                 { icon: Shield, title: "Defensa Activa", desc: "Sin falsos positivos" }
+               ].map((item, i) => (
+                 <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-[#0AB9C3]/30 transition-colors duration-300">
+                    <div className="mt-1 w-8 h-8 rounded-lg bg-[#0AB9C3]/10 flex items-center justify-center shrink-0">
+                        <item.icon className="w-4 h-4 text-[#0AB9C3]" />
+                    </div>
+                    <div>
+                        <h4 className="text-white font-medium text-sm">{item.title}</h4>
+                        <p className="text-zinc-500 text-xs">{item.desc}</p>
+                    </div>
+                 </div>
+               ))}
             </div>
 
-            {/* CTA Button mejorado */}
-            <div className="pt-4">
+            {/* Buttons */}
+            <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link href="/nox">
                 <Button
                   size="lg"
-                  className="group relative bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-black hover:border-primary transition-all duration-300 hover:scale-110 overflow-hidden px-8 py-6 text-lg font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/40"
+                  className="h-14 px-8 bg-[#0AB9C3] hover:bg-[#09a0a9] text-black font-bold rounded-xl shadow-[0_0_20px_-5px_rgba(10,185,195,0.4)] transition-all hover:scale-105 hover:shadow-[0_0_30px_-5px_rgba(10,185,195,0.6)]"
                 >
-                  {/* Shimmer effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-
-                  <span className="relative z-10 flex items-center gap-2">
-                    <Shield className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
-                    Conocé a NOX
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <span className="flex items-center gap-2">
+                    Conocer a NOX
+                    <ArrowRight className="w-5 h-5" />
                   </span>
                 </Button>
               </Link>
             </div>
-
-            {/* Trust badge */}
-            <p className="text-sm text-gray-500 flex items-center justify-center md:justify-start gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              Activo ahora mismo, protegiendo +100 empresas
-            </p>
           </div>
 
-          {/* Right Side - NOX Image Mejorada */}
+          {/* --- RIGHT SIDE: NOX VISUALIZATION --- */}
           <div
-            className={`flex justify-center md:justify-end transition-all duration-1000 delay-300 ${
-              revealed ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+            className={`flex justify-center md:justify-end relative transition-all duration-1000 delay-300 ${
+              revealed ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
-            <div
-              className="relative"
-              onMouseEnter={() => setIsImageHovered(true)}
-              onMouseLeave={() => setIsImageHovered(false)}
-            >
-              {/* Container con efectos */}
-              <div className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem]">
-                {/* Círculos de fondo animados */}
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" />
-                <div
-                  className="absolute inset-4 bg-primary/10 rounded-full blur-2xl animate-pulse"
-                  style={{ animationDelay: "0.5s" }}
-                />
+            {/* Escenario Holográfico */}
+            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]">
+                
+                {/* Anillos Giratorios (Fondo) */}
+                <div className="absolute inset-0 border border-[#0AB9C3]/10 rounded-full animate-[spin_20s_linear_infinite]" />
+                <div className="absolute inset-8 border border-[#0AB9C3]/20 rounded-full border-dashed animate-[spin_15s_linear_infinite_reverse]" />
+                <div className="absolute inset-0 bg-[#0AB9C3]/5 rounded-full blur-3xl animate-pulse" />
 
-                {/* Anillos orbitales */}
-                <div
-                  className={`absolute inset-0 border-2 border-primary/30 rounded-full transition-all duration-700 ${
-                    isImageHovered ? "scale-110 rotate-180" : "scale-100 rotate-0"
-                  }`}
-                />
-                <div
-                  className={`absolute inset-8 border border-primary/20 rounded-full transition-all duration-700 ${
-                    isImageHovered ? "scale-90 -rotate-180" : "scale-100 rotate-0"
-                  }`}
-                  style={{ animationDelay: "0.3s" }}
-                />
-
-                {/* NOX Image con animación float */}
-                <div
-                  className={`relative animate-float transition-transform duration-500 ${
-                    isImageHovered ? "scale-110" : "scale-100"
-                  }`}
-                >
-                  <Image
-                    src="/images/nox4.png"
-                    alt="NOX - Tu vigilante digital"
-                    width={448}
-                    height={448}
-                    className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_80px_rgba(0,198,214,0.8)] transition-all duration-500"
-                    priority
-                  />
+                {/* IMAGEN CENTRAL */}
+                <div className="relative z-10 w-full h-full flex items-center justify-center animate-float">
+                    <Image
+                        src="/images/nox4.png"
+                        alt="NOX Character"
+                        width={450}
+                        height={450}
+                        className="object-contain drop-shadow-[0_0_50px_rgba(10,185,195,0.4)]"
+                    />
                 </div>
 
-                {/* Esquinas decorativas mejoradas */}
-                <div className="absolute -top-6 -left-6 w-16 h-16 border-l-2 border-t-2 border-primary/50 rounded-tl-2xl animate-pulse" />
-                <div
-                  className="absolute -bottom-6 -right-6 w-16 h-16 border-r-2 border-b-2 border-primary/50 rounded-br-2xl animate-pulse"
-                  style={{ animationDelay: "0.5s" }}
-                />
-                <div
-                  className="absolute -top-6 -right-6 w-12 h-12 border-r-2 border-t-2 border-primary/30 rounded-tr-2xl animate-pulse"
-                  style={{ animationDelay: "1s" }}
-                />
-                <div
-                  className="absolute -bottom-6 -left-6 w-12 h-12 border-l-2 border-b-2 border-primary/30 rounded-bl-2xl animate-pulse"
-                  style={{ animationDelay: "1.5s" }}
-                />
-
-                {/* Partículas decorativas */}
-                <div className="absolute top-1/4 -left-4 w-3 h-3 bg-primary rounded-full animate-ping" />
-                <div
-                  className="absolute top-3/4 -right-4 w-2 h-2 bg-primary/60 rounded-full animate-ping"
-                  style={{ animationDelay: "0.5s" }}
-                />
-                <div
-                  className="absolute bottom-1/4 -left-2 w-2 h-2 bg-primary/40 rounded-full animate-ping"
-                  style={{ animationDelay: "1s" }}
-                />
-
-                {/* Texto flotante "Watching..." */}
-                {isImageHovered && (
-                  <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                    <div className="bg-black/80 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 animate-fade-in">
-                      <span className="text-sm text-primary font-semibold flex items-center gap-2">
-                        <Eye className="w-4 h-4 animate-pulse" />
-                        Vigilando tu negocio...
-                      </span>
+                {/* Elementos HUD Flotantes */}
+                <div className="absolute top-10 right-0 p-3 bg-black/80 backdrop-blur-md border border-[#0AB9C3]/30 rounded-lg shadow-lg animate-bounce [animation-duration:3s]">
+                    <Activity className="w-5 h-5 text-[#0AB9C3]" />
+                </div>
+                
+                <div className="absolute bottom-20 -left-4 p-2 bg-black/80 backdrop-blur-md border border-white/10 rounded-lg shadow-lg">
+                    <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                        <span className="text-xs font-mono text-white">SYSTEM ONLINE</span>
                     </div>
-                  </div>
-                )}
-              </div>
+                </div>
 
-              {/* Decoraciones adicionales */}
-              <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
-              <div className="absolute -top-16 -left-16 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
             </div>
           </div>
         </div>
 
-        {/* Stats section adicional */}
-        <div
-          className={`mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto transition-all duration-1000 delay-600 ${
-            revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+        {/* --- STATS BAR (HUD STYLE) --- */}
+        <div 
+            className={`mt-20 relative max-w-4xl mx-auto transition-all duration-1000 delay-500 ${
+                revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
-          {[
-            { value: "24/7", label: "Vigilancia activa" },
-            { value: "<1s", label: "Tiempo de detección" },
-            { value: "100%", label: "Automatizado" },
-          ].map((stat, idx) => (
-            <div key={idx} className="text-center">
-              <div className="text-3xl sm:text-4xl font-black text-primary mb-2">{stat.value}</div>
-              <div className="text-sm text-gray-500">{stat.label}</div>
+            <div className="absolute inset-0 bg-white/5 border border-white/5 rounded-2xl backdrop-blur-sm" />
+            <div className="relative grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5">
+                {[
+                    { label: "Amenazas Bloqueadas", value: "+10k", sub: "Este mes" },
+                    { label: "Uptime Garantizado", value: "99.9%", sub: "Servicio continuo" },
+                    { label: "Tiempo de Respuesta", value: "0.2s", sub: "Velocidad IA" },
+                    { label: "Empresas Seguras", value: "150+", sub: "En Argentina" },
+                ].map((stat, idx) => (
+                    <div key={idx} className="p-6 text-center group hover:bg-white/5 transition-colors duration-300 first:rounded-l-2xl last:rounded-r-2xl">
+                        <div className="text-3xl font-bold text-white mb-1 group-hover:text-[#0AB9C3] transition-colors">{stat.value}</div>
+                        <div className="text-sm font-medium text-zinc-400 mb-1">{stat.label}</div>
+                        <div className="text-xs text-zinc-600 font-mono">{stat.sub}</div>
+                    </div>
+                ))}
             </div>
-          ))}
+            {/* Decoración inferior de la barra */}
+            <div className="absolute -bottom-1 left-10 right-10 h-px bg-gradient-to-r from-transparent via-[#0AB9C3]/50 to-transparent" />
         </div>
-      </div>
 
-      {/* Bottom decorative line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      </div>
     </section>
   )
 }

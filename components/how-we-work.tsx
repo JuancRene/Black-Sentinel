@@ -1,6 +1,6 @@
 "use client"
 
-import { ClipboardCheck, Eye, Bell, Wrench, HeadphonesIcon, Sparkles } from "lucide-react"
+import { ClipboardCheck, Eye, Bell, Wrench, HeadphonesIcon, Sparkles, ArrowDown } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const steps = [
@@ -62,68 +62,100 @@ export function HowWeWork() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 sm:py-32 bg-gradient-to-b from-black via-[#0A0A0A] to-black relative overflow-hidden"
+      className="relative py-24 sm:py-32 bg-[#050505] overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1A1A_1px,transparent_1px),linear-gradient(to_bottom,#1A1A1A_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+      {/* --- BACKGROUND LAYERS --- */}
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
+      
+      {/* Glow lateral */}
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#0AB9C3]/5 blur-[120px] rounded-full pointer-events-none" />
+
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* --- HEADER --- */}
         <div
-          className={`text-center mb-16 sm:mb-20 transition-all duration-1000 ${revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`text-center mb-20 transition-all duration-1000 ${
+            revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
         >
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-5 py-2.5 mb-6 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-primary font-bold text-sm uppercase tracking-wide">Así de simple</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0AB9C3]/30 bg-[#0AB9C3]/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(10,185,195,0.2)] mb-6">
+            <Sparkles className="w-3 h-3 text-[#0AB9C3]" />
+            <span className="text-xs font-semibold text-[#0AB9C3] uppercase tracking-wider">Proceso Simplificado</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-            Cómo <span className="text-primary">te cuidamos</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Cómo <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AB9C3] to-teal-500">te cuidamos</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
-            Sin complicaciones. Sin que tengas que entender de tecnología. Nosotros nos ocupamos de todo.
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+            Sin complicaciones técnicas. Nosotros nos ocupamos de la seguridad para que vos te ocupes de tu negocio.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block" />
+        {/* --- TIMELINE CONTAINER --- */}
+        <div className="max-w-4xl mx-auto relative">
+          
+          {/* Línea vertical conectora */}
+          <div className="absolute left-[27px] sm:left-[39px] top-0 bottom-0 w-px bg-gradient-to-b from-[#0AB9C3]/50 via-[#0AB9C3]/20 to-transparent z-0" />
 
-            <div className="space-y-8">
-              {steps.map((step, index) => {
-                const Icon = step.icon
-                return (
-                  <div
-                    key={step.title}
-                    className={`relative group flex gap-6 items-start transition-all duration-700 ${revealed ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
-                    style={{ transitionDelay: `${index * 150}ms` }}
-                  >
-                    {/* Step number */}
-                    <div className="relative z-10 flex-shrink-0">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center text-black font-bold text-xl shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
+          <div className="space-y-12 sm:space-y-16">
+            {steps.map((step, index) => {
+              const Icon = step.icon
+              return (
+                <div
+                  key={step.title}
+                  className={`relative flex gap-6 sm:gap-10 items-stretch transition-all duration-700 ${
+                    revealed ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                  }`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
+                  {/* --- NODE / ICONO (Timeline) --- */}
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-[#0A0A0A] border border-[#0AB9C3]/30 flex items-center justify-center shadow-[0_0_20px_-5px_rgba(10,185,195,0.3)] group-hover:border-[#0AB9C3] transition-colors duration-500">
+                      <div className="absolute inset-0 bg-[#0AB9C3]/10 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#0AB9C3]" />
+                    </div>
+                  </div>
+
+                  {/* --- CONTENT CARD --- */}
+                  <div className="flex-1 group">
+                    <div className="relative h-full bg-zinc-900/40 border border-white/5 rounded-2xl p-6 sm:p-8 hover:border-[#0AB9C3]/40 hover:bg-zinc-900/60 transition-all duration-500 overflow-hidden">
+                      
+                      {/* Efecto de brillo en hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0AB9C3]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Número gigante de fondo (Watermark) */}
+                      <div className="absolute -right-4 -top-6 text-[8rem] font-bold text-white/[0.02] select-none pointer-events-none group-hover:text-[#0AB9C3]/[0.05] transition-colors duration-500 leading-none">
                         {step.number}
                       </div>
-                    </div>
 
-                    {/* Content */}
-                    <div className="flex-1 bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border border-primary/20 rounded-2xl p-6 group-hover:border-primary/40 transition-all duration-300">
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                          <Icon className="w-6 h-6 text-primary" />
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-3">
+                            <span className="text-[#0AB9C3] text-sm font-mono font-bold tracking-widest border border-[#0AB9C3]/20 px-2 py-1 rounded bg-[#0AB9C3]/5">
+                                PASO {step.number}
+                            </span>
                         </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                            {step.title}
-                          </h3>
-                          <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
-                            {step.description}
-                          </p>
-                        </div>
+                        
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#0AB9C3] transition-colors duration-300">
+                          {step.title}
+                        </h3>
+                        
+                        <p className="text-zinc-400 leading-relaxed text-base sm:text-lg">
+                          {step.description}
+                        </p>
+                      </div>
+
+                      {/* Flecha decorativa que aparece en hover */}
+                      <div className="absolute bottom-6 right-6 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                        <ArrowDown className="w-5 h-5 text-[#0AB9C3] -rotate-90" />
                       </div>
                     </div>
                   </div>
-                )
-              })}
-            </div>
+
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

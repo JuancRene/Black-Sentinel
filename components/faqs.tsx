@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ShieldCheck } from "lucide-react"
 
 const faqs = [
   {
@@ -68,21 +68,41 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="border border-[#1A1A1A] rounded-lg overflow-hidden transition-all duration-300 hover:border-[#0AB9C3]/50">
+    <div
+      className={`group border rounded-xl overflow-hidden transition-all duration-300 ${
+        isOpen
+          ? "border-[#0AB9C3] bg-[#0AB9C3]/5 shadow-[0_0_20px_-10px_rgba(10,185,195,0.3)]"
+          : "border-zinc-800 bg-zinc-900/30 hover:border-zinc-700"
+      }`}
+    >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-5 flex items-center justify-between text-left bg-[#0D0D0D] hover:bg-[#1A1A1A] transition-colors"
+        className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors"
       >
-        <span className="font-semibold text-white pr-4">{question}</span>
-        <ChevronDown
-          className={`w-5 h-5 text-[#0AB9C3] flex-shrink-0 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
+        <span className={`font-medium pr-4 transition-colors duration-300 ${isOpen ? "text-white" : "text-zinc-300 group-hover:text-white"}`}>
+          {question}
+        </span>
+        <div
+          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
+            isOpen ? "bg-[#0AB9C3] rotate-180" : "bg-zinc-800 group-hover:bg-zinc-700"
           }`}
-        />
+        >
+          <ChevronDown
+            className={`w-5 h-5 transition-colors duration-300 ${isOpen ? "text-black" : "text-zinc-400"}`}
+          />
+        </div>
       </button>
-      <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
         <div className="overflow-hidden">
-          <div className="px-6 py-5 bg-black/50 text-gray-300 leading-relaxed">{answer}</div>
+          <div className="px-6 pb-6 pt-0 text-zinc-400 leading-relaxed border-t border-transparent">
+             {/* Línea decorativa sutil solo cuando está abierto */}
+             <div className="w-full h-px bg-gradient-to-r from-[#0AB9C3]/20 to-transparent mb-4"></div>
+            {answer}
+          </div>
         </div>
       </div>
     </div>
@@ -91,14 +111,27 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export function FAQs() {
   return (
-    <section id="faqs" className="py-24 px-4 bg-black">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Preguntas que nos hacen seguido</h2>
-          <p className="text-xl text-gray-400">Si no encontrás tu duda acá, escribinos. Te respondemos en el día.</p>
+    <section id="faqs" className="relative py-24 px-4 bg-[#050505] overflow-hidden">
+      {/* Fondo decorativo sutil (Radial Gradient) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0AB9C3]/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative max-w-3xl mx-auto z-10">
+        <div className="text-center mb-16 space-y-4">
+          <div className="inline-flex items-center justify-center px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm mb-2">
+            <ShieldCheck className="w-4 h-4 text-[#0AB9C3] mr-2" />
+            <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Dudas Frecuentes</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Todo lo que necesitás saber sobre <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AB9C3] to-teal-600">tu seguridad</span>
+          </h2>
+          
+          <p className="text-lg text-zinc-400 max-w-xl mx-auto">
+            Si no encontrás tu duda acá, escribinos. Te respondemos en el día con una solución clara.
+          </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
             <FAQItem key={index} question={faq.question} answer={faq.answer} />
           ))}

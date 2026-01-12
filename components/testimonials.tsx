@@ -1,15 +1,32 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight, Star } from "lucide-react"
+import { useState, useEffect, useCallback } from "react"
+import { ChevronLeft, ChevronRight, Star, Quote, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const testimonials = [
   {
     name: "Matías González",
-    role: "CEO, Empresa de Logística",
+    role: "CEO, Logística Express",
+    image: null, // Si tienes fotos, pon la URL aquí
     content:
-      "BlackSentinel nos dio tranquilidad real. Desde que lo implementamos no tuvimos ni un susto: todo se detecta y se corrige antes.",
+      "BlackSentinel nos dio tranquilidad real. Antes vivíamos con miedo al ransomware. Desde que lo implementamos, la operación fluye sin interrupciones y dormimos tranquilos.",
+    rating: 5,
+  },
+  {
+    name: "Sofía Martínez",
+    role: "Socia, Estudio Contable SM",
+    image: null,
+    content:
+      "Manejamos datos muy sensibles de terceros. Necesitábamos algo más que un antivirus gratis. La respuesta del equipo humano de NOX cuando tuvimos una duda fue inmediata.",
+    rating: 5,
+  },
+  {
+    name: "Lucas Viale",
+    role: "CTO, TechSolutions",
+    image: null,
+    content:
+      "Lo que más valoro es que no consumen recursos de mis máquinas. La seguridad es invisible pero potente. Los reportes semanales son excelentes para presentar al directorio.",
     rating: 5,
   },
 ]
@@ -17,96 +34,163 @@ const testimonials = [
 export function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [progress, setProgress] = useState(0)
 
-  useEffect(() => {
-    if (!isAutoPlaying || testimonials.length <= 1) return
+  // Duración de cada slide en ms
+  const SLIDE_DURATION = 8000 
+  // Frecuencia de actualización de la barra en ms
+  const TICK = 100
 
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [isAutoPlaying])
-
-  const goToPrevious = () => {
-    setIsAutoPlaying(false)
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
-
-  const goToNext = () => {
-    setIsAutoPlaying(false)
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+    setProgress(0)
+  }, [])
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+    setProgress(0)
+    setIsAutoPlaying(false)
   }
+
+  // Manejo del Autoplay y Barra de Progreso
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress >= 100) {
+          nextSlide()
+          return 0
+        }
+        return oldProgress + (100 / (SLIDE_DURATION / TICK))
+      })
+    }, TICK)
+
+    return () => clearInterval(timer)
+  }, [isAutoPlaying, nextSlide])
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#0A0A0A] to-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Lo que dicen nuestros <span className="text-primary">clientes</span>
+    <section className="py-24 sm:py-32 bg-[#050505] relative overflow-hidden">
+      
+      {/* --- BACKGROUND LAYERS --- */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* --- HEADER --- */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center p-2 mb-4 bg-zinc-900 rounded-full border border-zinc-800">
+             <div className="flex -space-x-2 mr-3">
+                {[1,2,3].map(i => (
+                    <div key={i} className="w-6 h-6 rounded-full bg-zinc-800 border border-black flex items-center justify-center text-[10px] text-zinc-500">
+                        <User className="w-3 h-3" />
+                    </div>
+                ))}
+             </div>
+             <span className="text-xs text-zinc-400 font-medium pr-2">Confianza comprobada</span>
+          </div>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            Ellos ya están <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AB9C3] to-teal-500">protegidos</span>
           </h2>
         </div>
 
+        {/* --- MAIN CARD --- */}
         <div className="max-w-4xl mx-auto relative">
-          {/* Testimonial card */}
-          <div className="bg-[#1A1A1A] border-2 border-primary/20 rounded-2xl p-6 sm:p-10 md:p-12 min-h-[300px] sm:min-h-[280px] flex flex-col justify-between">
-            {/* Stars */}
-            <div className="flex justify-center gap-1 mb-6">
-              {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
-                <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 fill-primary text-primary" />
-              ))}
-            </div>
-
-            {/* Content */}
-            <blockquote className="text-base sm:text-lg md:text-xl text-gray-300 text-center mb-6 sm:mb-8 leading-relaxed flex-grow">
-              "{testimonials[currentIndex].content}"
-            </blockquote>
-
-            {/* Author */}
-            <div className="text-center">
-              <div className="font-semibold text-white text-base sm:text-lg">{testimonials[currentIndex].name}</div>
-              <div className="text-sm sm:text-base text-primary">{testimonials[currentIndex].role}</div>
-            </div>
+          
+          {/* Decorative Quote Icon Behind */}
+          <div className="absolute -top-10 -left-10 text-zinc-800 opacity-50 hidden md:block">
+            <Quote className="w-32 h-32" />
           </div>
 
-          {/* Navigation buttons - only show if multiple testimonials */}
-          {testimonials.length > 1 && (
-            <div className="flex justify-center gap-4 mt-8">
-              <Button
+          <div 
+            className="relative bg-[#0A0A0A] border border-zinc-800 rounded-3xl p-8 sm:p-12 min-h-[350px] flex flex-col justify-center overflow-hidden group hover:border-[#0AB9C3]/30 transition-colors duration-500"
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+          >
+             {/* Glow effect on hover */}
+             <div className="absolute inset-0 bg-gradient-to-b from-[#0AB9C3]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+             {/* Content with Animation Key */}
+             <div key={currentIndex} className="relative z-10 animate-fade-in">
+                
+                {/* Rating */}
+                <div className="flex justify-center mb-8 gap-1">
+                    {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-[#0AB9C3] text-[#0AB9C3] drop-shadow-[0_0_8px_rgba(10,185,195,0.5)]" />
+                    ))}
+                </div>
+
+                {/* Quote Text */}
+                <blockquote className="text-xl sm:text-2xl md:text-3xl text-zinc-200 text-center font-medium leading-relaxed mb-10">
+                    "{testimonials[currentIndex].content}"
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-3 text-zinc-400">
+                         {/* Placeholder avatar or real image */}
+                         <User className="w-6 h-6" />
+                    </div>
+                    <div className="text-white font-bold text-lg">{testimonials[currentIndex].name}</div>
+                    <div className="text-[#0AB9C3] text-sm font-medium">{testimonials[currentIndex].role}</div>
+                </div>
+             </div>
+
+             {/* Progress Bar (Bottom Line) */}
+             <div className="absolute bottom-0 left-0 h-1 bg-zinc-900 w-full">
+                <div 
+                    className="h-full bg-[#0AB9C3] transition-all duration-100 ease-linear shadow-[0_0_10px_#0AB9C3]"
+                    style={{ width: `${progress}%` }}
+                />
+             </div>
+          </div>
+
+          {/* --- CONTROLS --- */}
+          <div className="flex justify-between items-center mt-8 px-4">
+             {/* Previous Button */}
+             <Button
                 variant="outline"
                 size="icon"
-                onClick={goToPrevious}
-                className="border-primary/50 text-primary hover:bg-primary hover:text-black rounded-full w-10 h-10 sm:w-12 sm:h-12 bg-transparent"
-              >
-                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-              </Button>
+                onClick={prevSlide}
+                className="rounded-full w-12 h-12 border-zinc-800 bg-transparent text-zinc-400 hover:text-white hover:border-[#0AB9C3] hover:bg-[#0AB9C3]/10 transition-all"
+             >
+                <ChevronLeft className="w-6 h-6" />
+             </Button>
 
-              {/* Dots indicator */}
-              <div className="flex items-center gap-2">
+             {/* Dots */}
+             <div className="flex gap-3">
                 {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setIsAutoPlaying(false)
-                      setCurrentIndex(index)
-                    }}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentIndex ? "bg-primary w-8" : "bg-gray-600 hover:bg-gray-500"
-                    }`}
-                  />
+                    <button
+                        key={index}
+                        onClick={() => {
+                            setCurrentIndex(index)
+                            setProgress(0)
+                            setIsAutoPlaying(false)
+                        }}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                            index === currentIndex 
+                                ? "w-8 bg-[#0AB9C3] shadow-[0_0_8px_#0AB9C3]" 
+                                : "w-2 bg-zinc-700 hover:bg-zinc-500"
+                        }`}
+                    />
                 ))}
-              </div>
+             </div>
 
-              <Button
+             {/* Next Button */}
+             <Button
                 variant="outline"
                 size="icon"
-                onClick={goToNext}
-                className="border-primary/50 text-primary hover:bg-primary hover:text-black rounded-full w-10 h-10 sm:w-12 sm:h-12 bg-transparent"
-              >
-                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-              </Button>
-            </div>
-          )}
+                onClick={() => {
+                    nextSlide()
+                    setIsAutoPlaying(false)
+                }}
+                className="rounded-full w-12 h-12 border-zinc-800 bg-transparent text-zinc-400 hover:text-white hover:border-[#0AB9C3] hover:bg-[#0AB9C3]/10 transition-all"
+             >
+                <ChevronRight className="w-6 h-6" />
+             </Button>
+          </div>
+
         </div>
       </div>
     </section>

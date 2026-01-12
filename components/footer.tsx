@@ -2,213 +2,169 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Shield, Mail, MapPin, Phone } from "lucide-react"
-import { useState } from "react"
+import { ArrowUpRight, Shield, Mail, MapPin, Phone, Github, Linkedin, Twitter, CheckCircle2, ChevronUp } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export function Footer() {
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null)
+  const [showScrollTop, setShowScrollTop] = useState(false)
+  const currentYear = new Date().getFullYear()
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+  // Controlar visibilidad del botón de scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setShowScrollTop(true)
+      } else {
+        setShowScrollTop(false)
+      }
     }
-  }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   return (
-    <footer className="relative bg-gradient-to-b from-black via-[#0A0A0A] to-black border-t border-primary/20 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1A1A_1px,transparent_1px),linear-gradient(to_bottom,#1A1A1A_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-10" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
+    <footer className="relative bg-[#050505] border-t border-white/10 overflow-hidden font-sans">
+      
+      {/* --- BACKGROUND LAYERS --- */}
+      {/* 1. Technical Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
+      
+      {/* 2. Top Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#0AB9C3]/50 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#0AB9C3]/5 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 relative z-10">
+        
+        {/* --- MAIN GRID --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
-          {/* Logo & Description - Mejorado */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6 group cursor-pointer" onClick={scrollToTop}>
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
-                <Image
-                  src="/logo-blacksentinel-icon.png"
-                  alt="BlackSentinel Logo"
-                  width={48}
-                  height={48}
-                  className="relative w-12 h-12 object-contain drop-shadow-[0_0_20px_rgba(0,198,214,0.6)] group-hover:scale-110 transition-transform duration-300"
-                />
+          {/* BRAND COLUMN (Span 4) */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="flex items-center gap-3 group cursor-pointer" onClick={scrollToTop}>
+              <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-zinc-800 to-black border border-white/10 rounded-xl shadow-inner group-hover:border-[#0AB9C3]/50 transition-colors duration-300">
+                <Shield className="w-5 h-5 text-[#0AB9C3]" />
               </div>
-              <span className="text-2xl font-black text-white group-hover:text-primary transition-colors duration-300">
+              <span className="text-2xl font-bold text-white tracking-tight">
                 BlackSentinel
               </span>
             </div>
-            
-            <p className="text-lg font-semibold text-primary mb-3">
-              Vigilancia inteligente. Protección real.
-            </p>
-            
-            <p className="text-gray-400 text-base mb-6 max-w-md leading-relaxed">
-              Ciberseguridad potenciada por IA para empresas modernas. Detectamos amenazas antes de que sucedan.
+
+            <p className="text-zinc-400 leading-relaxed max-w-sm">
+              Protección cibernética de grado militar simplificada para PyMEs. 
+              Monitoreo activo, respuesta automática y tranquilidad absoluta.
             </p>
 
-            {/* Contact Info mejorado */}
-            <div className="space-y-3">
-              <a 
-                href="mailto:contacto@blacksentinel.com"
-                className="flex items-center gap-3 text-gray-400 hover:text-primary transition-all duration-300 group"
-              >
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Mail className="w-4 h-4 text-primary" />
-                </div>
-                <span className="text-sm group-hover:translate-x-1 transition-transform">
-                  contacto@blacksentinel.com
+            {/* Status Indicator */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-              </a>
-              
-              <div className="flex items-center gap-3 text-gray-400">
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-4 h-4 text-primary" />
-                </div>
-                <span className="text-sm">Argentina • Protección Global</span>
-              </div>
+                <span className="text-xs font-medium text-green-500">Sistemas Operativos</span>
+            </div>
+
+            {/* Socials */}
+            <div className="flex gap-4 pt-2">
+                {[Twitter, Github, Linkedin].map((Icon, i) => (
+                    <a key={i} href="#" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-[#0AB9C3] hover:border-[#0AB9C3] transition-all duration-300">
+                        <Icon className="w-4 h-4" />
+                    </a>
+                ))}
             </div>
           </div>
 
-          {/* Quick Links - Mejorado */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
-              <div className="w-1 h-6 bg-primary rounded-full" />
-              Enlaces rápidos
-            </h3>
-            <ul className="space-y-3">
-              {[
-                { name: "Servicios", href: "/servicios" },
-                { name: "Preguntas Frecuentes", href: "/faqs" },
-                { name: "Tecnología", href: "/tecnologia" },
-                { name: "Nosotros", href: "/nosotros" },
-                { name: "Conoce a NOX", href: "/nox" },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    onMouseEnter={() => setHoveredLink(item.name)}
-                    onMouseLeave={() => setHoveredLink(null)}
-                    className="group flex items-center gap-2 text-gray-400 hover:text-primary transition-all duration-300"
-                  >
-                    <ArrowUpRight 
-                      className={`w-4 h-4 transition-all duration-300 ${
-                        hoveredLink === item.name ? "translate-x-1 -translate-y-1" : ""
-                      }`} 
-                    />
-                    <span className="group-hover:translate-x-1 transition-transform">
-                      {item.name}
-                    </span>
+          {/* LINKS COLUMN 1 (Span 2) */}
+          <div className="lg:col-span-2 lg:col-start-6">
+            <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0AB9C3]"></span>
+                Compañía
+            </h4>
+            <ul className="space-y-4">
+              {["Nosotros", "Tecnología", "Carreras", "Prensa"].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="text-zinc-400 hover:text-[#0AB9C3] transition-colors text-sm flex items-center gap-1 group">
+                    <ArrowUpRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                    {item}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services - Mejorado */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
-              <div className="w-1 h-6 bg-primary rounded-full" />
-              Servicios Core
-            </h3>
-            <ul className="space-y-3">
-              {[
-                { icon: Shield, text: "Monitoreo 24/7" },
-                { icon: Shield, text: "Análisis de vulnerabilidades" },
-                { icon: Shield, text: "Hardening de sistemas" },
-                { icon: Shield, text: "Automatización defensiva" },
-              ].map((service, idx) => (
-                <li 
-                  key={idx}
-                  className="group flex items-start gap-3 text-gray-400 hover:text-gray-300 transition-all duration-300"
-                >
-                  <div className="w-5 h-5 rounded-md bg-primary/10 flex items-center justify-center mt-0.5 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-3 h-3 text-primary" />
-                  </div>
-                  <span className="text-sm group-hover:translate-x-1 transition-transform">
-                    {service.text}
-                  </span>
+          {/* LINKS COLUMN 2 (Span 2) */}
+          <div className="lg:col-span-2">
+            <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0AB9C3]"></span>
+                Recursos
+            </h4>
+            <ul className="space-y-4">
+              {["Blog", "Guías de Seguridad", "Help Center", "Estado del Servicio"].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="text-zinc-400 hover:text-[#0AB9C3] transition-colors text-sm flex items-center gap-1 group">
+                     <ArrowUpRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                    {item}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
 
-        {/* Separator con decoración */}
-        <div className="relative mb-8">
-          <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full" />
-        </div>
-
-        {/* Bottom Bar - Mejorado */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-          {/* Copyright */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-center lg:text-left">
-            <p className="text-gray-500 text-sm">
-              © 2025 BlackSentinel. Protección Inteligente.
-            </p>
-            <div className="hidden sm:block w-1 h-1 bg-gray-700 rounded-full" />
-            <p className="text-gray-600 text-xs">
-              Todos los derechos reservados.
-            </p>
+          {/* CONTACT COLUMN (Span 3) */}
+          <div className="lg:col-span-3">
+             <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0AB9C3]"></span>
+                Contacto
+            </h4>
+            <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-[#0AB9C3] mt-0.5 shrink-0" />
+                    <span className="text-zinc-400 text-sm">soporte@blacksentinel.com</span>
+                </li>
+                <li className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-[#0AB9C3] mt-0.5 shrink-0" />
+                    <span className="text-zinc-400 text-sm">Av. Corrientes 1234, CABA<br/>Buenos Aires, Argentina</span>
+                </li>
+                <li className="pt-4">
+                    <div className="p-4 rounded-xl bg-zinc-900/50 border border-white/5 backdrop-blur-sm">
+                        <p className="text-xs text-zinc-500 mb-2">Soporte de Emergencia</p>
+                        <p className="text-white font-mono text-lg tracking-wider">0800-555-NOX</p>
+                    </div>
+                </li>
+            </ul>
           </div>
 
-          {/* Legal Links */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm">
-            {[
-              { name: "Términos y Condiciones", href: "/terminos" },
-              { name: "Privacidad", href: "/privacidad" },
-              { name: "Reembolsos", href: "/reembolsos" },
-            ].map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-gray-500 hover:text-primary transition-colors duration-300 relative group"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
-              </Link>
-            ))}
+        </div>
+
+        {/* --- DIVIDER --- */}
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+
+        {/* --- BOTTOM BAR --- */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
+          <p>© {currentYear} BlackSentinel Security S.A. Todos los derechos reservados.</p>
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-white transition-colors">Privacidad</Link>
+            <Link href="#" className="hover:text-white transition-colors">Términos</Link>
+            <Link href="#" className="hover:text-white transition-colors">Cookies</Link>
           </div>
         </div>
 
-        {/* Back to Top Button */}
-        <button
-          onClick={scrollToTop}
-          className="group fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/50 transition-all duration-300 hover:scale-110 z-50"
-          aria-label="Volver arriba"
-        >
-          <svg 
-            className="w-5 h-5 text-black group-hover:-translate-y-1 transition-transform" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2.5} 
-              d="M5 10l7-7m0 0l7 7m-7-7v18" 
-            />
-          </svg>
-        </button>
-
-        {/* Decorative Elements */}
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-primary/5 to-transparent rounded-tr-full" />
-        <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-primary/5 to-transparent rounded-tl-full" />
       </div>
 
-      {/* Bottom Glow Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      {/* --- SCROLL TO TOP BUTTON --- */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-[#0AB9C3] text-black shadow-[0_0_20px_rgba(10,185,195,0.4)] hover:shadow-[0_0_30px_rgba(10,185,195,0.6)] hover:-translate-y-1 transition-all duration-300 ${
+            showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+        }`}
+        aria-label="Volver arriba"
+      >
+        <ChevronUp className="w-6 h-6" />
+      </button>
+
     </footer>
   )
 }

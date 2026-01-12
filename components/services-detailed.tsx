@@ -1,108 +1,92 @@
 "use client"
 
-import { Eye, Server, Search, Shield, Zap, FileText, CheckCircle2, Sparkles, Heart, Ban } from "lucide-react"
+import { Eye, Server, Search, Shield, Zap, FileText, Ban, Check, Activity, Cpu, Lock } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const services = [
   {
     icon: Eye,
-    title: "Te cuidamos las 24 horas",
-    description: "Monitoreamos tu negocio todo el tiempo. Si algo raro pasa, nos enteramos antes que vos y actuamos.",
+    title: "Vigilancia Activa 24/7",
+    description: "Tus sistemas nunca duermen, nosotros tampoco. Monitoreo continuo de red y endpoints.",
     features: [
-      "Vigilancia continua",
-      "Te avisamos si hay problemas",
-      "Detectamos comportamientos sospechosos",
-      "Controlamos tu red",
-      "Cuidamos lo importante",
+      "Detección de intrusos en tiempo real",
+      "Análisis de tráfico anómalo",
+      "Respuesta inmediata a incidentes",
+      "Logs de auditoría forense",
     ],
-    ideal: "Negocios que quieren dormir tranquilos",
-    color: "cyan",
+    ideal: "Negocios que operan fuera de hora",
   },
   {
     icon: Search,
-    title: "Encontramos las puertas abiertas",
-    description: "Revisamos tu infraestructura buscando debilidades que los hackers podrían usar para entrar.",
+    title: "Análisis de Vulnerabilidades",
+    description: "Encontramos las grietas antes que los atacantes. Escaneos profundos de tu infraestructura.",
     features: [
-      "Escaneos periódicos",
-      "Te decimos qué arreglar primero",
-      "Recomendaciones claras",
-      "Revisamos configuraciones",
-      "Reportes que se entienden",
+      "Penetration Testing automatizado",
+      "Reportes de riesgo priorizados",
+      "Revisión de configuraciones cloud",
+      "Compliance check",
     ],
-    ideal: "Negocios que quieren saber dónde están parados",
-    color: "cyan",
+    ideal: "Empresas con datos sensibles",
   },
   {
     icon: Server,
-    title: "Blindamos tus sistemas",
-    description: "Configuramos todo para que sea más difícil de atacar. Cerramos puertas y ponemos candados.",
+    title: "Hardening de Sistemas",
+    description: "Blindaje de servidores y estaciones de trabajo. Cerramos puertas innecesarias.",
     features: [
-      "Configuración segura",
-      "Quitamos lo que no necesitás",
-      "Contraseñas más fuertes",
-      "Actualizaciones automáticas",
-      "Cerramos accesos innecesarios",
+      "Gestión de parches de seguridad",
+      "Políticas de contraseñas robustas",
+      "Desactivación de servicios legacy",
+      "Cifrado de discos",
     ],
-    ideal: "Negocios con servidores propios o en la nube",
-    color: "cyan",
+    ideal: "Infraestructura crítica",
   },
   {
     icon: Shield,
-    title: "Defensa automática",
-    description:
-      "Si detectamos un ataque, actuamos automáticamente: bloqueamos, aislamos y protegemos sin que tengas que hacer nada.",
+    title: "Defensa Autónoma",
+    description: "Nuestra IA bloquea ataques conocidos y desconocidos (Zero-day) en milisegundos.",
     features: [
-      "Bloqueo automático de amenazas",
-      "Aislamiento de equipos infectados",
-      "Contención preventiva",
-      "Respuestas personalizadas",
-      "Protección integrada",
+      "Bloqueo de Ransomware por comportamiento",
+      "Aislamiento automático de equipos",
+      "Rollback de archivos encriptados",
+      "Protección sin firmas (Next-Gen)",
     ],
-    ideal: "Negocios que no pueden darse el lujo de parar",
-    color: "cyan",
+    ideal: "Prevención de parálisis operativa",
   },
   {
     icon: Zap,
-    title: "Mantenemos todo funcionando",
-    description: "Nos aseguramos de que tus equipos estén sanos, actualizados y funcionando bien.",
+    title: "Optimización de Recursos",
+    description: "No solo protegemos, hacemos que todo ande mejor. Limpieza y mantenimiento.",
     features: [
-      "Revisamos el rendimiento",
-      "Inventario de software",
-      "Limpieza periódica",
-      "Control de recursos",
-      "Menos problemas técnicos",
+      "Inventario de software y hardware",
+      "Eliminación de Bloatware",
+      "Control de actualizaciones",
+      "Métricas de rendimiento",
     ],
-    ideal: "Negocios que quieren eficiencia",
-    color: "cyan",
+    ideal: "Eficiencia operativa",
   },
   {
     icon: FileText,
-    title: "Reportes que se entienden",
-    description: "Te contamos cómo está tu seguridad en palabras simples. Sin jerga técnica, sin confusión.",
+    title: "Inteligencia y Reportes",
+    description: "Traducimos bits y bytes a decisiones de negocio claras.",
     features: [
-      "Dashboards claros",
-      "Reportes periódicos",
-      "Priorización de riesgos",
-      "Tendencias y mejoras",
-      "Recomendaciones prácticas",
+      "Dashboards ejecutivos en vivo",
+      "Resumen mensual de amenazas",
+      "ROI de ciberseguridad",
+      "Sugerencias de mejora continua",
     ],
-    ideal: "Dueños de negocio que quieren estar informados",
-    color: "cyan",
+    ideal: "Gerentes y Dueños",
   },
   {
     icon: Ban,
-    title: "Control de productividad",
-    description:
-      "Bloqueamos sitios que distraen a tus empleados durante el horario laboral. Más foco, menos distracciones.",
+    title: "Control de Navegación",
+    description: "Filtro de contenido web y control de aplicaciones para mejorar el foco.",
     features: [
-      "Bloqueo de redes sociales",
-      "Filtrado de contenido no laboral",
-      "Horarios personalizables",
-      "Reportes de uso de internet",
-      "Listas blancas y negras",
+      "Bloqueo de sitios maliciosos/phishing",
+      "Restricción de redes sociales (opcional)",
+      "Control de descargas",
+      "Horarios de navegación",
     ],
-    ideal: "Negocios que quieren mejorar la productividad",
-    color: "cyan",
+    ideal: "Productividad y seguridad",
   },
 ]
 
@@ -133,42 +117,42 @@ export function ServicesDetailed() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 px-4 bg-gradient-to-b from-black via-[#0A0A0A] to-black overflow-hidden"
+      className="relative py-24 sm:py-32 bg-[#050505] overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1A1A_1px,transparent_1px),linear-gradient(to_bottom,#1A1A1A_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+      {/* --- BACKGROUND LAYERS --- */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
+      
+      {/* Decorative Glows */}
+      <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-[#0AB9C3]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-[#0AB9C3]/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-[120px] animate-float" />
-      <div
-        className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[140px] animate-float"
-        style={{ animationDelay: "3s" }}
-      />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header - Nuevo título emocional */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* --- HEADER --- */}
         <div
-          className={`text-center mb-16 sm:mb-20 transition-all duration-1000 ${
+          className={`text-center mb-20 transition-all duration-1000 ${
             revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
-            <Heart className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium">Cuidamos cada detalle</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0AB9C3]/30 bg-[#0AB9C3]/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(10,185,195,0.2)] mb-6">
+            <Activity className="w-3 h-3 text-[#0AB9C3]" />
+            <span className="text-xs font-semibold text-[#0AB9C3] uppercase tracking-wider">Suite de Seguridad Integral</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Todo lo que hacemos{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary">
-              por tu negocio
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Todo lo que hacemos <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AB9C3] to-teal-500">
+              por tu tranquilidad
             </span>
-          </h1>
+          </h2>
 
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Protección completa para que vos te enfoques en lo que importa: hacer crecer tu empresa
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+            Una arquitectura de defensa en capas diseñada para cubrir cada ángulo de tu infraestructura digital.
           </p>
         </div>
 
-        {/* Grid de servicios */}
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+        {/* --- SERVICES GRID --- */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon
             const isHovered = hoveredIndex === index
@@ -178,106 +162,63 @@ export function ServicesDetailed() {
                 key={service.title}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] border-2 border-primary/20 rounded-3xl p-8 transition-all duration-500 overflow-hidden ${
+                className={`group relative bg-[#0A0A0A] border border-zinc-800 rounded-2xl p-6 transition-all duration-500 hover:border-[#0AB9C3]/50 hover:shadow-[0_0_30px_-10px_rgba(10,185,195,0.15)] overflow-hidden ${
                   revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                } ${isHovered ? "scale-105 border-primary/60 shadow-2xl shadow-primary/20" : "hover:scale-102"}`}
-                style={{
-                  transitionDelay: `${index * 100}ms`,
-                }}
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                {/* Fondo sutil en hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0AB9C3]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Corner Markers (Decoración Tech) */}
+                <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-[#0AB9C3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 right-0 w-2 h-2 border-r border-t border-[#0AB9C3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 w-2 h-2 border-l border-b border-[#0AB9C3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-[#0AB9C3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                <div className="relative z-10">
-                  <div className="relative mb-6">
-                    <div
-                      className={`absolute inset-0 rounded-2xl blur-xl transition-all duration-500 bg-primary/30 ${
-                        isHovered ? "scale-150 opacity-100" : "scale-100 opacity-50"
-                      }`}
-                    />
-                    <div
-                      className={`relative w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center transition-all duration-500 ${
-                        isHovered ? "rotate-12 scale-110" : "rotate-0 scale-100"
-                      }`}
-                    >
-                      <Icon
-                        className={`w-10 h-10 text-primary transition-all duration-500 ${isHovered ? "scale-125" : "scale-100"}`}
-                      />
+                <div className="relative z-10 flex flex-col h-full">
+                  
+                  {/* ICONO (Estilo Chip) */}
+                  <div className="mb-6 flex justify-between items-start">
+                    <div className="relative w-12 h-12 flex items-center justify-center bg-zinc-900 border border-zinc-700 rounded-lg group-hover:border-[#0AB9C3]/50 group-hover:bg-[#0AB9C3]/10 transition-colors duration-300">
+                      <Icon className="w-6 h-6 text-zinc-400 group-hover:text-[#0AB9C3] transition-colors duration-300" />
                     </div>
+                    {/* Decorative ID number */}
+                    <span className="text-[10px] font-mono text-zinc-700 group-hover:text-[#0AB9C3]/50 transition-colors">
+                        MOD-0{index + 1}
+                    </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">
+                  {/* TEXTO */}
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#0AB9C3] transition-colors duration-300">
                     {service.title}
                   </h3>
-
-                  <p className="text-base text-gray-400 mb-6 leading-relaxed group-hover:text-gray-300 transition-colors">
+                  <p className="text-zinc-400 text-sm mb-6 leading-relaxed flex-grow">
                     {service.description}
                   </p>
 
-                  <div className="mb-6">
-                    <h4 className="text-xs font-bold text-primary mb-4 uppercase tracking-wider flex items-center gap-2">
-                      <span className="w-8 h-px bg-primary/50" />
-                      Qué incluye
-                    </h4>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, idx) => (
-                        <li
-                          key={idx}
-                          className="text-gray-300 text-sm flex items-start gap-3 group/feature transition-all duration-300 hover:translate-x-1"
-                        >
-                          <div className="relative mt-0.5">
-                            <CheckCircle2 className="w-5 h-5 text-primary transition-all duration-300 group-hover/feature:scale-110" />
-                            <div className="absolute inset-0 bg-primary/30 rounded-full blur-sm opacity-0 group-hover/feature:opacity-100 transition-opacity duration-300" />
-                          </div>
-                          <span className="group-hover/feature:text-white transition-colors duration-300">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* FEATURES LIST */}
+                  <div className="space-y-3 mb-6 bg-black/20 p-4 rounded-xl border border-white/5">
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-2 text-xs text-zinc-300">
+                         <div className="mt-0.5 w-1 h-1 rounded-full bg-[#0AB9C3]" />
+                         <span>{feature}</span>
+                      </div>
+                    ))}
                   </div>
 
-                  <div className="pt-6 border-t border-primary/10">
-                    <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1">Ideal para:</p>
-                        <p className="text-sm text-gray-400 leading-relaxed">{service.ideal}</p>
-                      </div>
-                    </div>
+                  {/* FOOTER BADGE */}
+                  <div className="mt-auto pt-4 border-t border-zinc-800 flex items-center gap-2">
+                     <Cpu className="w-3 h-3 text-zinc-500" />
+                     <span className="text-xs text-zinc-500 font-medium uppercase tracking-wide">
+                        Target: {service.ideal}
+                     </span>
                   </div>
+
                 </div>
-
-                <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-tl from-primary/5 to-transparent rounded-tl-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             )
           })}
-        </div>
-
-        {/* CTA Section */}
-        <div
-          className={`mt-20 text-center transition-all duration-1000 delay-500 ${
-            revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-20 bg-gradient-to-r from-transparent to-primary/50" />
-            <Sparkles className="w-5 h-5 text-primary" />
-            <div className="h-px w-20 bg-gradient-to-l from-transparent to-primary/50" />
-          </div>
-
-          <p className="text-lg text-gray-400 mb-4">¿No sabés por dónde empezar?</p>
-          <p className="text-sm text-gray-500">
-            Te ayudamos a elegir lo que realmente necesita tu negocio. Sin vueltas, sin venderte lo que no necesitás.
-          </p>
         </div>
       </div>
     </section>

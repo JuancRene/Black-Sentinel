@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Shield, ArrowRight, CheckCircle, Sparkles, Zap } from "lucide-react"
+import { Shield, ArrowRight, CheckCircle, Sparkles, Zap, Lock } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 export function FinalCTA() {
@@ -18,7 +18,7 @@ export function FinalCTA() {
           }
         })
       },
-      { threshold: 0.2 },
+      { threshold: 0.2 }
     )
 
     if (sectionRef.current) {
@@ -39,183 +39,132 @@ export function FinalCTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 bg-gradient-to-b from-black via-[#0A0A0A] to-black overflow-hidden"
+      className="relative py-32 overflow-hidden bg-[#050505]"
     >
-      {/* Background Effects Mejorados */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
-        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] animate-float" />
-        <div
-          className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px] animate-float"
-          style={{ animationDelay: "2s" }}
-        />
-      </div>
+      {/* --- BACKGROUND LAYERS --- */}
+      
+      {/* 1. Base Grid (Malla técnica) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
 
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1A1A_1px,transparent_1px),linear-gradient(to_bottom,#1A1A1A_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+      {/* 2. Ambient Glow (Luz ambiental cian) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0AB9C3]/10 blur-[120px] rounded-full pointer-events-none" />
 
-      {/* Líneas decorativas */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-primary/50 to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-t from-primary/50 to-transparent" />
-
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
-          {/* Badge superior */}
+          
+          {/* --- BADGE SUPERIOR --- */}
           <div
-            className={`flex justify-center mb-8 transition-all duration-1000 ${
-              revealed ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+            className={`flex justify-center mb-10 transition-all duration-700 ease-out ${
+              revealed ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
             }`}
           >
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-5 py-2.5 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-sm font-semibold text-primary">Última oportunidad de proteger tu empresa</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0AB9C3]/30 bg-[#0AB9C3]/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(10,185,195,0.2)]">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0AB9C3] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0AB9C3]"></span>
+              </span>
+              <span className="text-xs font-semibold text-[#0AB9C3] uppercase tracking-wider">Seguridad Empresarial Activa</span>
             </div>
           </div>
 
-          {/* Card principal mejorada */}
+          {/* --- MAIN CARD --- */}
           <div
-            className={`relative bg-gradient-to-br from-[#1A1A1A] via-[#0F0F0F] to-[#1A1A1A] border-2 border-primary/40 rounded-3xl p-8 sm:p-12 md:p-16 text-center overflow-hidden shadow-2xl shadow-primary/20 transition-all duration-1000 ${
+            className={`relative group rounded-3xl p-1 transition-all duration-1000 ${
               revealed ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-12 scale-95"
             }`}
           >
-            {/* Efecto de brillo superior */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+            {/* Borde degradado animado */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0AB9C3]/40 via-transparent to-[#0AB9C3]/10 rounded-3xl blur-sm opacity-50 transition-opacity duration-500 group-hover:opacity-100" />
+            
+            {/* Contenido de la tarjeta */}
+            <div className="relative bg-[#0A0A0A] border border-white/10 rounded-[22px] p-8 sm:p-16 text-center overflow-hidden shadow-2xl">
+              
+              {/* Efecto de vidrio (ruido sutil) */}
+              <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none mix-blend-overlay"></div>
+              
+              {/* Resplandor superior interno */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-[#0AB9C3] to-transparent opacity-50" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[100px] bg-[#0AB9C3]/10 blur-[50px] rounded-full pointer-events-none" />
 
-            {/* Glow animado de fondo */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 animate-pulse-slow" />
-
-            {/* Esquinas decorativas */}
-            <div className="absolute top-4 left-4 w-16 h-16 border-l-2 border-t-2 border-primary/30 rounded-tl-2xl" />
-            <div className="absolute top-4 right-4 w-16 h-16 border-r-2 border-t-2 border-primary/30 rounded-tr-2xl" />
-            <div className="absolute bottom-4 left-4 w-16 h-16 border-l-2 border-b-2 border-primary/30 rounded-bl-2xl" />
-            <div className="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-primary/30 rounded-br-2xl" />
-
-            <div className="relative z-10">
-              {/* Icono Shield mejorado */}
-              <div className="mb-8 flex justify-center">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-primary/40 rounded-3xl blur-2xl animate-pulse-glow" />
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl flex items-center justify-center backdrop-blur-sm border border-primary/30 shadow-lg shadow-primary/30">
-                    <Shield className="w-12 h-12 sm:w-14 sm:h-14 text-primary drop-shadow-[0_0_10px_rgba(0,198,214,0.8)]" />
+              <div className="relative z-10 flex flex-col items-center">
+                
+                {/* ICONO CENTRAL */}
+                <div className="mb-8 relative group/icon">
+                  <div className="absolute inset-0 bg-[#0AB9C3]/20 rounded-2xl blur-xl group-hover/icon:blur-2xl transition-all duration-500 opacity-0 group-hover/icon:opacity-100" />
+                  <div className="relative w-24 h-24 bg-gradient-to-br from-zinc-800 to-black border border-white/10 rounded-2xl flex items-center justify-center shadow-inner ring-1 ring-white/5">
+                    <Shield className="w-10 h-10 text-[#0AB9C3] drop-shadow-[0_0_15px_rgba(10,185,195,0.5)]" />
                   </div>
-                  {/* Partículas decorativas */}
-                  <div className="absolute -top-2 -right-2 w-3 h-3 bg-primary rounded-full animate-ping" />
-                  <div
-                    className="absolute -bottom-2 -left-2 w-2 h-2 bg-primary/60 rounded-full animate-ping"
-                    style={{ animationDelay: "0.5s" }}
-                  />
+                  {/* Badge flotante sobre el icono */}
+                  <div className="absolute -top-3 -right-3 bg-zinc-900 border border-[#0AB9C3]/30 p-1.5 rounded-lg shadow-lg rotate-12">
+                     <Lock className="w-4 h-4 text-[#0AB9C3]" />
+                  </div>
                 </div>
-              </div>
 
-              {/* Título principal */}
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
-                Protegé tu negocio{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary animate-gradient bg-[length:200%_auto]">
-                  hoy mismo
-                </span>
-              </h2>
+                {/* COPYWRITING */}
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
+                  Protegé tu negocio <br className="hidden sm:block" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#0AB9C3] to-white animate-gradient bg-[length:200%_auto]">
+                    antes de que sea tarde
+                  </span>
+                </h2>
 
-              {/* Subtítulo */}
-              <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-                Ciberseguridad profesional. <span className="text-primary font-bold">Sin estrés. Sin incidentes.</span>
-              </p>
+                <p className="text-lg sm:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                  Ciberseguridad de nivel corporativo simplificada para tu empresa.
+                  <br/> <span className="text-white font-medium">Sin técnicos, sin complicaciones, sin incidentes.</span>
+                </p>
 
-              {/* Features badges mejorados */}
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12">
-                {[
-                  { icon: Zap, text: "Implementación en 48hs" },
-                  { icon: CheckCircle, text: "Sin contratos largos" },
-                  { icon: Shield, text: "Soporte 24/7" },
-                ].map((item, idx) => (
-                  <div
-                    key={item.text}
-                    className="group flex items-center gap-3 px-5 py-3 bg-black/50 backdrop-blur-sm border border-primary/20 rounded-full hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
-                    style={{ animationDelay: `${idx * 100}ms` }}
-                  >
-                    <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                      <item.icon className="w-4 h-4 text-primary" />
+                {/* PILLS DE CARACTERÍSTICAS */}
+                <div className="flex flex-wrap justify-center gap-3 mb-12">
+                  {[
+                    { icon: Zap, text: "Setup en 48hs" },
+                    { icon: CheckCircle, text: "Sin permanencia" },
+                    { icon: Shield, text: "Monitoreo 24/7" },
+                  ].map((item, idx) => (
+                    <div
+                      key={item.text}
+                      className="flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border border-white/5 rounded-full hover:border-[#0AB9C3]/30 transition-colors duration-300"
+                    >
+                      <item.icon className="w-4 h-4 text-[#0AB9C3]" />
+                      <span className="text-sm text-zinc-300 font-medium">{item.text}</span>
                     </div>
-                    <span className="text-sm sm:text-base text-gray-400 group-hover:text-gray-300 font-medium transition-colors">
-                      {item.text}
+                  ))}
+                </div>
+
+                {/* BOTONES DE ACCIÓN */}
+                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                  <Button
+                    onClick={handleCTA}
+                    onMouseEnter={() => setIsHoveringPrimary(true)}
+                    onMouseLeave={() => setIsHoveringPrimary(false)}
+                    className="group relative h-14 px-8 rounded-xl bg-[#0AB9C3] hover:bg-[#09a0a9] text-black font-bold text-lg overflow-hidden transition-all duration-300 shadow-[0_0_20px_-5px_rgba(10,185,195,0.4)] hover:shadow-[0_0_30px_-5px_rgba(10,185,195,0.6)] hover:-translate-y-1"
+                  >
+                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 skew-y-12" />
+                    <span className="relative flex items-center gap-2">
+                      <Sparkles className={`w-5 h-5 transition-transform duration-500 ${isHoveringPrimary ? "rotate-180 scale-110" : ""}`} />
+                      Empezar ahora
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
-                  </div>
-                ))}
-              </div>
+                  </Button>
 
-              {/* CTAs mejorados */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <Button
-                  onClick={handleCTA}
-                  onMouseEnter={() => setIsHoveringPrimary(true)}
-                  onMouseLeave={() => setIsHoveringPrimary(false)}
-                  size="lg"
-                  className="relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-black font-bold text-lg sm:text-xl px-10 sm:px-12 py-7 sm:py-8 rounded-2xl shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all duration-300 hover:scale-110 w-full sm:w-auto group overflow-hidden"
-                >
-                  {/* Shimmer effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    <Sparkles
-                      className={`w-5 h-5 transition-transform duration-300 ${isHoveringPrimary ? "rotate-180" : ""}`}
-                    />
-                    Empezar ahora
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                  </span>
-                </Button>
-
-                <Button
-                  onClick={handleWhatsApp}
-                  size="lg"
-                  variant="outline"
-                  className="group border-2 border-primary/50 text-primary hover:bg-primary hover:text-black hover:border-primary font-bold text-lg sm:text-xl px-10 sm:px-12 py-7 sm:py-8 rounded-2xl transition-all duration-300 hover:scale-110 w-full sm:w-auto bg-transparent relative overflow-hidden"
-                >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    Hablar con el equipo
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                  <div className="absolute inset-0 bg-primary/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-2xl" />
-                </Button>
-              </div>
-
-              {/* Footer info mejorado */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span>Respuesta en menos de 24 horas</span>
+                  <Button
+                    onClick={handleWhatsApp}
+                    variant="outline"
+                    className="h-14 px-8 rounded-xl border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white font-medium text-lg transition-all duration-300 hover:-translate-y-1"
+                  >
+                    Hablar con un experto
+                  </Button>
                 </div>
-                <div className="hidden sm:block w-1 h-1 bg-gray-700 rounded-full" />
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-primary" />
-                  <span>Sin compromiso</span>
-                </div>
-              </div>
-            </div>
 
-            {/* Decoración inferior */}
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-          </div>
+                {/* FOOTER TEXT */}
+                <p className="mt-8 text-sm text-zinc-500">
+                  Plan Gratuito disponible para auditoría inicial.
+                </p>
 
-          {/* Trust badges adicionales */}
-          <div
-            className={`mt-12 text-center transition-all duration-1000 delay-300 ${
-              revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <div className="flex flex-wrap justify-center items-center gap-8 text-gray-500 text-sm">
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-primary" />
-                <span>Datos encriptados</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span>99.9% Uptime</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Zap className="w-5 h-5 text-primary" />
-                <span>Setup rápido</span>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </section>
