@@ -149,10 +149,10 @@ export default function TecnologiaPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {/* N-Able */}
-            <div className="group flex flex-col items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-              <div className="mb-6 h-32 flex items-center justify-center">
+            <div className="group flex flex-col items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-full">
+              <div className="mb-6 h-32 w-full flex items-center justify-center bg-white/5 rounded-lg">
                 <img 
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview-349ADTXGyIBjqk8Za9tB0zBV0o12wv.png" 
                   alt="N-Able Logo" 
@@ -160,7 +160,7 @@ export default function TecnologiaPage() {
                 />
               </div>
               <h3 className="text-2xl font-bold mb-3">N-Able</h3>
-              <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+              <p className="text-gray-400 mb-4 text-sm leading-relaxed flex-grow">
                 Líder global en soluciones de seguridad y mantenimiento de sistemas. Proporciona la infraestructura de monitoreo y actualización automática que mantiene tu negocio siempre protegido.
               </p>
               <div className="space-y-2 text-xs text-gray-500 border-t border-white/10 pt-4 w-full">
@@ -171,8 +171,8 @@ export default function TecnologiaPage() {
             </div>
 
             {/* Sentinel One */}
-            <div className="group flex flex-col items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-              <div className="mb-6 h-32 flex items-center justify-center">
+            <div className="group flex flex-col items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-full">
+              <div className="mb-6 h-32 w-full flex items-center justify-center bg-white/5 rounded-lg">
                 <img 
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%20%281%29-TkqoqQ94wsAFXD5fvWNmYMEfZ2sM66.png" 
                   alt="SentinelOne Logo" 
@@ -180,7 +180,7 @@ export default function TecnologiaPage() {
                 />
               </div>
               <h3 className="text-2xl font-bold mb-3">SentinelOne</h3>
-              <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+              <p className="text-gray-400 mb-4 text-sm leading-relaxed flex-grow">
                 Plataforma de protección de endpoints con IA de última generación. Detecta y bloquea amenazas en tiempo real, incluyendo ransomware y ataques zero-day.
               </p>
               <div className="space-y-2 text-xs text-gray-500 border-t border-white/10 pt-4 w-full">
