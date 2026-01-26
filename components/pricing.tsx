@@ -39,7 +39,7 @@ const plans = [
       "Control de productividad",
     ],
     highlight: false,
-    cta: "Empezar Ahora",
+    cta: "Empezar Crecimiento",
   },
   {
     name: "Profesional",
