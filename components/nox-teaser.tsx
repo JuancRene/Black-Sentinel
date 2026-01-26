@@ -110,41 +110,19 @@ export function NoxTeaser() {
 
           {/* --- RIGHT SIDE: NOX VISUALIZATION --- */}
           <div
-            className={`flex justify-center md:justify-end relative transition-all duration-1000 delay-300 ${
+            className={`flex justify-center items-center relative transition-all duration-1000 delay-300 ${
               revealed ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
-            {/* Escenario Holográfico */}
-            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]">
-                
-                {/* Anillos Giratorios (Fondo) */}
-                <div className="absolute inset-0 border border-[#0AB9C3]/10 rounded-full animate-[spin_20s_linear_infinite]" />
-                <div className="absolute inset-8 border border-[#0AB9C3]/20 rounded-full border-dashed animate-[spin_15s_linear_infinite_reverse]" />
-                <div className="absolute inset-0 bg-[#0AB9C3]/5 rounded-full blur-3xl animate-pulse" />
-
-                {/* IMAGEN CENTRAL */}
-                <div className="relative z-10 w-full h-full flex items-center justify-center animate-float">
-                    <Image
-                        src="/images/nox4.png"
-                        alt="NOX Character"
-                        width={450}
-                        height={450}
-                        className="object-contain drop-shadow-[0_0_50px_rgba(10,185,195,0.4)]"
-                    />
-                </div>
-
-                {/* Elementos HUD Flotantes */}
-                <div className="absolute top-10 right-0 p-3 bg-black/80 backdrop-blur-md border border-[#0AB9C3]/30 rounded-lg shadow-lg animate-bounce [animation-duration:3s]">
-                    <Activity className="w-5 h-5 text-[#0AB9C3]" />
-                </div>
-                
-                <div className="absolute bottom-20 -left-4 p-2 bg-black/80 backdrop-blur-md border border-white/10 rounded-lg shadow-lg">
-                    <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                        <span className="text-xs font-mono text-white">SYSTEM ONLINE</span>
-                    </div>
-                </div>
-
+            {/* IMAGEN CENTRAL SIN MARCO */}
+            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] flex items-center justify-center animate-float">
+                <Image
+                    src="/images/nox4.png"
+                    alt="NOX Character"
+                    width={500}
+                    height={500}
+                    className="object-contain drop-shadow-[0_0_50px_rgba(10,185,195,0.4)] w-full h-full"
+                />
             </div>
           </div>
         </div>

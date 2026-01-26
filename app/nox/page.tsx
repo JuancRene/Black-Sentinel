@@ -45,19 +45,15 @@ export default function NoxPage() {
                 </Link>
               </div>
 
-              <div className="relative animate-fade-in">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 flex items-center justify-center shadow-2xl shadow-primary/10 overflow-hidden">
-                  <video
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Video_Listo_Con_Fondo_Negro-PXtROOKJnVbSe3ZZZi7dznUKO3LClA.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover scale-120"
-                  />
-                </div>
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+              <div className="flex justify-center items-center relative animate-fade-in">
+                <video
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Video_Listo_Con_Fondo_Negro-PXtROOKJnVbSe3ZZZi7dznUKO3LClA.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full max-w-md lg:max-w-lg object-contain drop-shadow-[0_0_50px_rgba(10,185,195,0.4)]"
+                />
               </div>
             </div>
           </div>
