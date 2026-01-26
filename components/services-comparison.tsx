@@ -20,7 +20,7 @@ const comparisonData = [
     icon: Zap,
     features: [
       { name: "Control de Productividad", esencial: true, crecimiento: true, profesional: true, corporativo: "Personalizable" },
-      { name: "Gestión de Parches", esencial: false, crecimiento: true, profesional: true, corporativo: true },
+      { name: "Gestión de Parches", esencial: true, crecimiento: true, profesional: true, corporativo: true },
       { name: "Seguridad de Email", esencial: true, crecimiento: true, profesional: true, corporativo: true },
       { name: "Filtrado Web y DNS", esencial: false, crecimiento: true, profesional: true, corporativo: true },
       { name: "Auditoría de Contraseñas", esencial: false, crecimiento: true, profesional: true, corporativo: true },
@@ -41,14 +41,14 @@ const comparisonData = [
     features: [
       {
         name: "Reportes",
-        esencial: "Mensual",
+        esencial: "Semanal",
         crecimiento: "Semanal",
         profesional: "Ejecutivo",
         corporativo: "A medida",
       },
       {
         name: "Soporte Técnico",
-        esencial: "WhatsApp",
+        esencial: "Prioritario",
         crecimiento: "Prioritario",
         profesional: "24/7 Dedicado",
         corporativo: "Gerente de Cuenta",
@@ -63,13 +63,13 @@ const plans = [
     key: "esencial",
     icon: Users,
     subtitle: "Startups",
+    featured: true,
   },
   {
     name: "Crecimiento",
     key: "crecimiento",
     icon: Zap,
     subtitle: "PyMEs",
-    featured: true, // El plan que queremos vender
   },
   {
     name: "Profesional",
