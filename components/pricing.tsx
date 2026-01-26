@@ -11,7 +11,7 @@ const plans = [
     icon: Users,
     price: "USD 25",
     period: "/ equipo / mes",
-    devices: "1 a 15 equipos",
+    devices: " 1 a 15 equipos",
     description: "Protección base sólida para negocios que inician.",
     features: [
       "Antivirus Next-Gen",
@@ -29,7 +29,7 @@ const plans = [
     icon: Rocket,
     price: "USD 500",
     period: "/ mes ",
-    devices: "hasta 35 equipos",
+    devices: " hasta 35 equipos",
     description: "La opción inteligente. Control total y soporte prioritario.",
     features: [
       "Todo lo de Esencial",
@@ -46,7 +46,7 @@ const plans = [
     icon: Zap,
     price: "USD 900",
     period: "/ mes",
-    devices: "hasta 75 equipos",
+    devices: " hasta 75 equipos",
     description: "Seguridad ofensiva para empresas que no pueden parar.",
     features: [
       "Todo lo de Crecimiento",
