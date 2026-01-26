@@ -17,7 +17,7 @@ const plans = [
       "Antivirus Next-Gen",
       "Monitoreo 24/7",
       "Soporte vía WhatsApp",
-      "Protección de emails",
+      "Protección de emails*",
       "Reportes semanales",
     ],
     highlight: true,
@@ -230,24 +230,32 @@ export function Pricing() {
           })}
         </div>
 
-        {/* --- GARANTÍAS INFERIORES --- */}
+        {/* --- NOTAS AL PIE --- */}
         <div className="mt-20 border-t border-white/5 pt-10">
-             <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-                {[
-                    { icon: Shield, text: "Diagnóstico inicial bonificado" },
-                    { icon: Phone, text: "Hablas con humanos, no bots" },
-                    { icon: HelpCircle, text: "Soporte incluído en todos los planes" },
-                ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 group">
-                        <div className="p-2 rounded-full bg-[#0AB9C3]/10 text-[#0AB9C3] group-hover:bg-[#0AB9C3] group-hover:text-black transition-colors duration-300">
-                             <item.icon className="w-4 h-4" />
-                        </div>
-                        <span className="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors">
-                            {item.text}
-                        </span>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-xs text-zinc-500 mb-2 font-semibold">*Protección de emails:</p>
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              Disponible para correos corporativos. Si no cuentas con uno, en los planes Esencial y Crecimiento se puede crear con costo mínimo. En los planes Profesional y Corporativo, la creación de correo corporativo es sin costo adicional.
+            </p>
+          </div>
+
+          {/* --- GARANTÍAS INFERIORES --- */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+            {[
+                { icon: Shield, text: "Diagnóstico inicial bonificado" },
+                { icon: Phone, text: "Hablas con humanos, no bots" },
+                { icon: HelpCircle, text: "Soporte incluído en todos los planes" },
+            ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 group">
+                    <div className="p-2 rounded-full bg-[#0AB9C3]/10 text-[#0AB9C3] group-hover:bg-[#0AB9C3] group-hover:text-black transition-colors duration-300">
+                         <item.icon className="w-4 h-4" />
                     </div>
-                ))}
-             </div>
+                    <span className="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors">
+                        {item.text}
+                    </span>
+                </div>
+            ))}
+          </div>
         </div>
 
       </div>
