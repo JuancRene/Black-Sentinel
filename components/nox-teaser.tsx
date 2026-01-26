@@ -110,19 +110,20 @@ export function NoxTeaser() {
 
           {/* --- RIGHT SIDE: NOX VISUALIZATION --- */}
           <div
-            className={`flex justify-center items-center relative transition-all duration-1000 delay-300 ${
+            className={`flex items-center justify-center relative transition-all duration-1000 delay-300 min-h-[500px] ${
               revealed ? "opacity-100 scale-100" : "opacity-0 scale-95"
             }`}
           >
-            {/* IMAGEN CENTRAL SIN MARCO */}
-            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] flex items-center justify-center animate-float">
-                <Image
-                    src="/images/nox4.png"
-                    alt="NOX Character"
-                    width={500}
-                    height={500}
-                    className="object-contain drop-shadow-[0_0_50px_rgba(10,185,195,0.4)] w-full h-full"
-                />
+            {/* IMAGEN CENTRAL - SIN MARCO */}
+            <div className="relative w-full h-full flex items-center justify-center animate-float">
+              <Image
+                src="/images/nox4.png"
+                alt="NOX Character"
+                width={500}
+                height={500}
+                className="w-full h-auto max-w-md lg:max-w-lg object-contain drop-shadow-[0_0_50px_rgba(10,185,195,0.4)]"
+                priority
+              />
             </div>
           </div>
         </div>
