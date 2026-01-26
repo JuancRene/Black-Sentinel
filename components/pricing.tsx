@@ -11,7 +11,7 @@ const plans = [
     icon: Users,
     price: "USD 25",
     period: "/ equipo / mes",
-    devices: " 1 a 15 equipos",
+    devices: "",
     description: "Protección base sólida para negocios que inician.",
     features: [
       "Antivirus Next-Gen",
