@@ -17,7 +17,6 @@ const plans = [
       "Antivirus Next-Gen",
       "Monitoreo 24/7",
       "Soporte vía WhatsApp",
-      "Protección de emails*",
       "Reportes semanales",
     ],
     highlight: true,
@@ -33,6 +32,7 @@ const plans = [
     description: "La opción inteligente. Control total y soporte prioritario.",
     features: [
       "Todo lo de Esencial",
+      "Protección de emails*",
       "Soporte Prioritario <2hs",
       "Actualización de Apps",
       "Alertas predictivas IA",
