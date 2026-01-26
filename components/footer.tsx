@@ -53,10 +53,12 @@ export function Footer() {
               </span>
             </div>
 
-            <p className="text-zinc-400 leading-relaxed max-w-sm">
-              Protección cibernética de grado militar simplificada para tu empresa.
-              Monitoreo activo, respuesta automática y tranquilidad absoluta.
-            </p>
+           <p className="text-zinc-400 leading-relaxed max-w-sm">
+  Protección cibernética de grado militar simplificada para tu empresa.
+  <br />
+  Monitoreo activo, respuesta automática y tranquilidad absoluta.
+</p>
+
 
             {/* Status Indicator */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
