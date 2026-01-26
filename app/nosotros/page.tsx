@@ -19,7 +19,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
                 Somos tu equipo de seguridad.
-                <span className="block mt-2 text-primary">Solo que no tenés que contratarlos en planta.</span>
+                <span className="block mt-2 text-primary">Sin costos de contratación ni estructura fija.</span>
               </h1>
               <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
                 Entendemos que tu prioridad es hacer crecer tu negocio, no convertirte en experto en ciberseguridad. Por
@@ -154,19 +154,17 @@ export default function AboutPage() {
                   </div>
                   <div className="flex-1 space-y-4 text-gray-300 text-lg leading-relaxed">
                     <p>
-                      "Vi a demasiados negocios perder todo por un clic en el mail equivocado o una contraseña débil.
+                      &quot;Vi negocios cercanos perder todo por un clic en el mail equivocado.
                     </p>
                     <p>
-                      La tecnología para evitarlo existía, pero era carísima y complicada. Decidí cambiar eso. Quería
-                      construir algo que fuera tan fuerte como para frenar a un hacker profesional, pero tan simple que
-                      cualquier dueño de negocio pudiera entender qué está pasando con su seguridad.
+                      La tecnología para evitarlo existía, pero era carísima y complicada. Decidí cambiar eso. Quería construir algo que fuera tan fuerte como para frenar cualquier problema, pero tan simple que cualquier dueño de negocio pudiera entender qué está pasando con su seguridad.
                     </p>
                     <p>
                       Hoy, BlackSentinel protege negocios en toda la región. Y cada noche, cuando me voy a dormir, sé
                       que hay empresarios que descansan tranquilos porque nosotros estamos vigilando."
                     </p>
                     <div className="pt-4 border-t border-gray-800">
-                      <p className="text-white font-semibold">— Juan Cruz R.</p>
+                      <p className="text-white font-semibold">— Juan Rene A.</p>
                       <p className="text-gray-400 text-base">Fundador de BlackSentinel</p>
                     </div>
                   </div>

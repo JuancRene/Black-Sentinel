@@ -137,6 +137,69 @@ export default function TecnologiaPage() {
         </div>
       </section>
 
+      {/* Proveedores - N-Able y Sentinel One */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+              Potenciado por los <span className="text-primary">mejores del mercado</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Trabajamos con los líderes de la industria de ciberseguridad para brindarte protección de nivel empresarial.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {/* N-Able */}
+            <div className="group flex flex-col items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-full">
+              <div className="mb-6 h-32 w-full flex items-center justify-center bg-white/5 rounded-lg">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview-349ADTXGyIBjqk8Za9tB0zBV0o12wv.png" 
+                  alt="N-Able Logo" 
+                  className="max-h-24 max-w-xs object-contain"
+                />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">N-Able</h3>
+              <p className="text-gray-400 mb-4 text-sm leading-relaxed flex-grow">
+                Líder global en soluciones de seguridad y mantenimiento de sistemas. Proporciona la infraestructura de monitoreo y actualización automática que mantiene tu negocio siempre protegido.
+              </p>
+              <div className="space-y-2 text-xs text-gray-500 border-t border-white/10 pt-4 w-full">
+                <p>✓ Actualizaciones automáticas</p>
+                <p>✓ Monitoreo 24/7</p>
+                <p>✓ Gestión remota de sistemas</p>
+              </div>
+            </div>
+
+            {/* Sentinel One */}
+            <div className="group flex flex-col items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-full">
+              <div className="mb-6 h-32 w-full flex items-center justify-center bg-white/5 rounded-lg">
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%20%281%29-TkqoqQ94wsAFXD5fvWNmYMEfZ2sM66.png" 
+                  alt="SentinelOne Logo" 
+                  className="max-h-24 max-w-xs object-contain"
+                />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">SentinelOne</h3>
+              <p className="text-gray-400 mb-4 text-sm leading-relaxed flex-grow">
+                Plataforma de protección de endpoints con IA de última generación. Detecta y bloquea amenazas en tiempo real, incluyendo ransomware y ataques zero-day.
+              </p>
+              <div className="space-y-2 text-xs text-gray-500 border-t border-white/10 pt-4 w-full">
+                <p>✓ Detección de amenazas con IA</p>
+                <p>✓ Recuperación de ransomware</p>
+                <p>✓ Protección de endpoints</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-500 text-sm">
+              Esta combinación de tecnologías nos permite ofrecerte seguridad de nivel empresarial,<br />
+              personalizada para las necesidades de tu PyME.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* IA Section - Explicación simple para no-técnicos */}
       <section className="py-20 bg-gradient-to-b from-transparent via-primary/5 to-transparent relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
