@@ -154,7 +154,7 @@ export default function TecnologiaPage() {
             <div className="group flex flex-col items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
               <div className="mb-6 h-32 flex items-center justify-center">
                 <img 
-                  src="/logo-nable.png" 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview-349ADTXGyIBjqk8Za9tB0zBV0o12wv.png" 
                   alt="N-Able Logo" 
                   className="max-h-24 max-w-xs object-contain"
                 />
@@ -174,7 +174,7 @@ export default function TecnologiaPage() {
             <div className="group flex flex-col items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
               <div className="mb-6 h-32 flex items-center justify-center">
                 <img 
-                  src="/logo-sentinelone.png" 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-removebg-preview%20%281%29-TkqoqQ94wsAFXD5fvWNmYMEfZ2sM66.png" 
                   alt="SentinelOne Logo" 
                   className="max-h-24 max-w-xs object-contain"
                 />
