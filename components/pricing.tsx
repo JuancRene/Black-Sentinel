@@ -149,9 +149,18 @@ export function Pricing() {
                 key={plan.name}
                 className={`relative group rounded-3xl p-1 transition-all duration-500 ${
                     revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                }`}
+                } ${plan.highlight ? "pt-6" : ""}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
+                {/* Badge destacado - FUERA del overflow */}
+                {plan.highlight && (
+                    <div className="absolute -top-3 inset-x-0 flex justify-center z-20">
+                        <span className="bg-[#0AB9C3] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-[0_0_15px_#0AB9C3]">
+                            {plan.badge}
+                        </span>
+                    </div>
+                )}
+
                 {/* Borde Brillante para el destacado */}
                 <div 
                     className={`absolute inset-0 rounded-3xl transition-opacity duration-500 ${
@@ -166,15 +175,6 @@ export function Pricing() {
                     
                     {/* Efecto Escáner en Hover */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0AB9C3]/5 to-transparent translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000 pointer-events-none" />
-
-                    {/* Badge destacado */}
-                    {plan.highlight && (
-                        <div className="absolute top-0 inset-x-0 flex justify-center -mt-3">
-                            <span className="bg-[#0AB9C3] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-[0_0_15px_#0AB9C3]">
-                                {plan.badge}
-                            </span>
-                        </div>
-                    )}
 
                     {/* Header Tarjeta */}
                     <div className="mb-6">
