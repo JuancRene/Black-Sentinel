@@ -11,13 +11,12 @@ const plans = [
     icon: Users,
     price: "USD 25",
     period: "/ equipo / mes",
-    devices: "1 a 15 equipos",
+    devices: "",
     description: "Protección base sólida para negocios que inician.",
     features: [
       "Antivirus Next-Gen",
       "Monitoreo 24/7",
-      "Soporte vía WhatsApp",
-      "Protección de emails*",
+      "Soporte inmediato",
       "Reportes semanales",
     ],
     highlight: true,
@@ -27,13 +26,14 @@ const plans = [
   {
     name: "Crecimiento",
     icon: Rocket,
-    price: "USD 800",
-    period: "/ mes (Flat Fee)",
-    devices: "hasta 35 equipos",
+    price: "USD 500",
+    period: "/ mes",
+    devices: " hasta 25 equipos",
     description: "La opción inteligente. Control total y soporte prioritario.",
     features: [
       "Todo lo de Esencial",
-      "Soporte Prioritario <2hs",
+      "Protección de emails*",
+      "Soporte Prioritario",
       "Actualización de Apps",
       "Alertas predictivas IA",
       "Control de productividad",
@@ -44,9 +44,9 @@ const plans = [
   {
     name: "Profesional",
     icon: Zap,
-    price: "USD 1.500",
-    period: "/ mes (Flat Fee)",
-    devices: "hasta 75 equipos",
+    price: "USD 900",
+    period: "/ mes",
+    devices: " hasta 50 equipos",
     description: "Seguridad ofensiva para empresas que no pueden parar.",
     features: [
       "Todo lo de Crecimiento",
@@ -199,6 +199,9 @@ export function Pricing() {
                         <span className="text-xs text-zinc-500 font-medium uppercase tracking-wide">
                             {plan.period}
                         </span>
+                        <span className="text-xs text-zinc-500 font-medium uppercase tracking-wide">
+                            {plan.devices}
+                        </span>
                     </div>
 
                     {/* Features */}
@@ -235,7 +238,7 @@ export function Pricing() {
           <div className="max-w-3xl mx-auto mb-12">
             <p className="text-xs text-zinc-500 mb-2 font-semibold">*Protección de emails:</p>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              Disponible para correos corporativos. Si no cuentas con uno, en los planes Esencial y Crecimiento se puede crear con costo mínimo. En los planes Profesional y Corporativo, la creación de correo corporativo es sin costo adicional.
+              Disponible para correos corporativos    
             </p>
           </div>
 
