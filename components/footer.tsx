@@ -77,41 +77,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* LINKS COLUMN 1 (Span 2) */}
-          <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0AB9C3]"></span>
-                Compañía
-            </h4>
-            <ul className="space-y-4">
-              {["Nosotros", "Tecnología", "Carreras", "Prensa"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-zinc-400 hover:text-[#0AB9C3] transition-colors text-sm flex items-center gap-1 group">
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* LINKS COLUMN 2 (Span 2) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0AB9C3]"></span>
-                Recursos
-            </h4>
-            <ul className="space-y-4">
-              {["Blog", "Guías de Seguridad", "Help Center", "Estado del Servicio"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-zinc-400 hover:text-[#0AB9C3] transition-colors text-sm flex items-center gap-1 group">
-                     <ArrowUpRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* CONTACT COLUMN (Span 3) */}
           <div className="lg:col-span-3">
