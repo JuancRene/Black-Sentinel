@@ -53,10 +53,12 @@ export function Footer() {
               </span>
             </div>
 
-            <p className="text-zinc-400 leading-relaxed max-w-sm">
-              Protección cibernética de grado militar simplificada para PyMEs. 
-              Monitoreo activo, respuesta automática y tranquilidad absoluta.
-            </p>
+           <p className="text-zinc-400 leading-relaxed max-w-sm">
+  Protección cibernética de grado militar simplificada para tu empresa.
+  <br />
+  Monitoreo activo, respuesta automática y tranquilidad absoluta.
+</p>
+
 
             {/* Status Indicator */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
@@ -77,41 +79,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* LINKS COLUMN 1 (Span 2) */}
-          <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0AB9C3]"></span>
-                Compañía
-            </h4>
-            <ul className="space-y-4">
-              {["Nosotros", "Tecnología", "Carreras", "Prensa"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-zinc-400 hover:text-[#0AB9C3] transition-colors text-sm flex items-center gap-1 group">
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* LINKS COLUMN 2 (Span 2) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0AB9C3]"></span>
-                Recursos
-            </h4>
-            <ul className="space-y-4">
-              {["Blog", "Guías de Seguridad", "Help Center", "Estado del Servicio"].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-zinc-400 hover:text-[#0AB9C3] transition-colors text-sm flex items-center gap-1 group">
-                     <ArrowUpRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* CONTACT COLUMN (Span 3) */}
           <div className="lg:col-span-3">
@@ -126,14 +93,9 @@ export function Footer() {
                 </li>
                 <li className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-[#0AB9C3] mt-0.5 shrink-0" />
-                    <span className="text-zinc-400 text-sm">Av. Corrientes 1234, CABA<br/>Buenos Aires, Argentina</span>
+                    <span className="text-zinc-400 text-sm">Parana,<br/>Entre Rios, Argentina</span>
                 </li>
-                <li className="pt-4">
-                    <div className="p-4 rounded-xl bg-zinc-900/50 border border-white/5 backdrop-blur-sm">
-                        <p className="text-xs text-zinc-500 mb-2">Soporte de Emergencia</p>
-                        <p className="text-white font-mono text-lg tracking-wider">0800-555-NOX</p>
-                    </div>
-                </li>
+                
             </ul>
           </div>
 
@@ -146,9 +108,8 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
           <p>© {currentYear} BlackSentinel Security S.A. Todos los derechos reservados.</p>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-white transition-colors">Privacidad</Link>
-            <Link href="#" className="hover:text-white transition-colors">Términos</Link>
-            <Link href="#" className="hover:text-white transition-colors">Cookies</Link>
+            <Link href="https://www.blacksentinelsecurity.com/privacidad" className="hover:text-white transition-colors">Privacidad</Link>
+            <Link href="https://www.blacksentinelsecurity.com/terminos" className="hover:text-white transition-colors">Términos</Link>
           </div>
         </div>
 

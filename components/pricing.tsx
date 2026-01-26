@@ -17,10 +17,11 @@ const plans = [
       "Antivirus Next-Gen",
       "Monitoreo 24/7",
       "Soporte vía WhatsApp",
-      "Protección de emails",
+      "Protección de emails*",
       "Reportes semanales",
     ],
-    highlight: false,
+    highlight: true,
+    badge: "RECOMENDADO",
     cta: "Elegir Esencial",
   },
   {
@@ -37,9 +38,8 @@ const plans = [
       "Alertas predictivas IA",
       "Control de productividad",
     ],
-    highlight: true, // Este es el que queremos vender
-    badge: "RECOMENDADO",
-    cta: "Empezar Ahora",
+    highlight: false,
+    cta: "Empezar Crecimiento",
   },
   {
     name: "Profesional",
@@ -149,9 +149,18 @@ export function Pricing() {
                 key={plan.name}
                 className={`relative group rounded-3xl p-1 transition-all duration-500 ${
                     revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                }`}
+                } ${plan.highlight ? "pt-6" : ""}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
+                {/* Badge destacado - FUERA del overflow */}
+                {plan.highlight && (
+                    <div className="absolute -top-3 inset-x-0 flex justify-center z-20">
+                        <span className="bg-[#0AB9C3] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-[0_0_15px_#0AB9C3]">
+                            {plan.badge}
+                        </span>
+                    </div>
+                )}
+
                 {/* Borde Brillante para el destacado */}
                 <div 
                     className={`absolute inset-0 rounded-3xl transition-opacity duration-500 ${
@@ -166,15 +175,6 @@ export function Pricing() {
                     
                     {/* Efecto Escáner en Hover */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0AB9C3]/5 to-transparent translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-1000 pointer-events-none" />
-
-                    {/* Badge destacado */}
-                    {plan.highlight && (
-                        <div className="absolute top-0 inset-x-0 flex justify-center -mt-3">
-                            <span className="bg-[#0AB9C3] text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-[0_0_15px_#0AB9C3]">
-                                {plan.badge}
-                            </span>
-                        </div>
-                    )}
 
                     {/* Header Tarjeta */}
                     <div className="mb-6">
@@ -230,24 +230,32 @@ export function Pricing() {
           })}
         </div>
 
-        {/* --- GARANTÍAS INFERIORES --- */}
+        {/* --- NOTAS AL PIE --- */}
         <div className="mt-20 border-t border-white/5 pt-10">
-             <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-                {[
-                    { icon: Shield, text: "Diagnóstico inicial bonificado" },
-                    { icon: Phone, text: "Hablas con humanos, no bots" },
-                    { icon: HelpCircle, text: "Soporte incluído en todos los planes" },
-                ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 group">
-                        <div className="p-2 rounded-full bg-[#0AB9C3]/10 text-[#0AB9C3] group-hover:bg-[#0AB9C3] group-hover:text-black transition-colors duration-300">
-                             <item.icon className="w-4 h-4" />
-                        </div>
-                        <span className="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors">
-                            {item.text}
-                        </span>
+          <div className="max-w-3xl mx-auto mb-12">
+            <p className="text-xs text-zinc-500 mb-2 font-semibold">*Protección de emails:</p>
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              Disponible para correos corporativos. Si no cuentas con uno, en los planes Esencial y Crecimiento se puede crear con costo mínimo. En los planes Profesional y Corporativo, la creación de correo corporativo es sin costo adicional.
+            </p>
+          </div>
+
+          {/* --- GARANTÍAS INFERIORES --- */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12">
+            {[
+                { icon: Shield, text: "Diagnóstico inicial bonificado" },
+                { icon: Phone, text: "Hablas con humanos, no bots" },
+                { icon: HelpCircle, text: "Soporte incluído en todos los planes" },
+            ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 group">
+                    <div className="p-2 rounded-full bg-[#0AB9C3]/10 text-[#0AB9C3] group-hover:bg-[#0AB9C3] group-hover:text-black transition-colors duration-300">
+                         <item.icon className="w-4 h-4" />
                     </div>
-                ))}
-             </div>
+                    <span className="text-sm text-zinc-400 group-hover:text-zinc-200 transition-colors">
+                        {item.text}
+                    </span>
+                </div>
+            ))}
+          </div>
         </div>
 
       </div>

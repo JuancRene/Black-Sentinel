@@ -83,7 +83,7 @@ export function Stats() {
           </h2>
 
           <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-            Los ciberataques no discriminan por tamaño. Estas son las realidades que enfrentan las empresas argentinas todos los días.
+            Los ciberataques no discriminan por tamaño. Estas son las realidades que enfrentan las empresas todos los días.
           </p>
         </div>
 
