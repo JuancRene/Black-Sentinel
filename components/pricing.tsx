@@ -238,7 +238,7 @@ export function Pricing() {
           <div className="max-w-3xl mx-auto mb-12">
             <p className="text-xs text-zinc-500 mb-2 font-semibold">*Protección de emails:</p>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              Disponible para correos corporativos. Si no cuentas con uno, en los planes Esencial y Crecimiento se puede crear con costo mínimo. En los planes Profesional y Corporativo, la creación de correo corporativo es sin costo adicional.
+              Disponible para correos corporativos    
             </p>
           </div>
 
