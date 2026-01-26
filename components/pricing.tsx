@@ -28,7 +28,7 @@ const plans = [
     name: "Crecimiento",
     icon: Rocket,
     price: "USD 500",
-    period: "/ mes ",
+    period: "/ mes",
     devices: " hasta 35 equipos",
     description: "La opción inteligente. Control total y soporte prioritario.",
     features: [
