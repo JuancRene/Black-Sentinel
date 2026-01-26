@@ -27,8 +27,8 @@ const plans = [
   {
     name: "Crecimiento",
     icon: Rocket,
-    price: "USD 800",
-    period: "/ mes (Flat Fee)",
+    price: "USD 500",
+    period: "/ mes ",
     devices: "hasta 35 equipos",
     description: "La opción inteligente. Control total y soporte prioritario.",
     features: [
@@ -44,7 +44,7 @@ const plans = [
   {
     name: "Profesional",
     icon: Zap,
-    price: "USD 1.500",
+    price: "USD 900",
     period: "/ mes (Flat Fee)",
     devices: "hasta 75 equipos",
     description: "Seguridad ofensiva para empresas que no pueden parar.",
