@@ -45,7 +45,7 @@ const plans = [
     name: "Profesional",
     icon: Zap,
     price: "USD 900",
-    period: "/ mes (Flat Fee)",
+    period: "/ mes",
     devices: "hasta 75 equipos",
     description: "Seguridad ofensiva para empresas que no pueden parar.",
     features: [
@@ -198,6 +198,9 @@ export function Pricing() {
                         </div>
                         <span className="text-xs text-zinc-500 font-medium uppercase tracking-wide">
                             {plan.period}
+                        </span>
+                        <span className="text-xs text-zinc-500 font-medium uppercase tracking-wide">
+                            {plan.devices}
                         </span>
                     </div>
 
