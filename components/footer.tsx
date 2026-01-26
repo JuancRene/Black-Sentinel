@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Shield, Mail, MapPin, Phone, Github, Linkedin, Twitter, CheckCircle2, ChevronUp } from "lucide-react"
+import { ArrowUpRight, Shield, Mail, MapPin, Phone, CheckCircle2, ChevronUp, MessageCircle, Instagram } from "lucide-react"
 import { useState, useEffect } from "react"
 
 export function Footer() {
@@ -71,11 +71,12 @@ export function Footer() {
 
             {/* Socials */}
             <div className="flex gap-4 pt-2">
-                {[Twitter, Github, Linkedin].map((Icon, i) => (
-                    <a key={i} href="#" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-[#0AB9C3] hover:border-[#0AB9C3] transition-all duration-300">
-                        <Icon className="w-4 h-4" />
-                    </a>
-                ))}
+                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-[#0AB9C3] hover:border-[#0AB9C3] transition-all duration-300">
+                    <MessageCircle className="w-4 h-4" />
+                </a>
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-[#0AB9C3] hover:border-[#0AB9C3] transition-all duration-300">
+                    <Instagram className="w-4 h-4" />
+                </a>
             </div>
           </div>
 
