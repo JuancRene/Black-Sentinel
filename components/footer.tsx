@@ -126,14 +126,9 @@ export function Footer() {
                 </li>
                 <li className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-[#0AB9C3] mt-0.5 shrink-0" />
-                    <span className="text-zinc-400 text-sm">Av. Corrientes 1234, CABA<br/>Buenos Aires, Argentina</span>
+                    <span className="text-zinc-400 text-sm">Parana,<br/>Entre Rios, Argentina</span>
                 </li>
-                <li className="pt-4">
-                    <div className="p-4 rounded-xl bg-zinc-900/50 border border-white/5 backdrop-blur-sm">
-                        <p className="text-xs text-zinc-500 mb-2">Soporte de Emergencia</p>
-                        <p className="text-white font-mono text-lg tracking-wider">0800-555-NOX</p>
-                    </div>
-                </li>
+                
             </ul>
           </div>
 
@@ -148,7 +143,6 @@ export function Footer() {
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white transition-colors">Privacidad</Link>
             <Link href="#" className="hover:text-white transition-colors">Términos</Link>
-            <Link href="#" className="hover:text-white transition-colors">Cookies</Link>
           </div>
         </div>
 
