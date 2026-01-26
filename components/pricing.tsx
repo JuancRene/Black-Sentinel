@@ -16,7 +16,7 @@ const plans = [
     features: [
       "Antivirus Next-Gen",
       "Monitoreo 24/7",
-      "Soporte vía WhatsApp",
+      "Soporte inmediato",
       "Reportes semanales",
     ],
     highlight: true,
@@ -28,12 +28,12 @@ const plans = [
     icon: Rocket,
     price: "USD 500",
     period: "/ mes",
-    devices: " hasta 35 equipos",
+    devices: " hasta 25 equipos",
     description: "La opción inteligente. Control total y soporte prioritario.",
     features: [
       "Todo lo de Esencial",
       "Protección de emails*",
-      "Soporte Prioritario <2hs",
+      "Soporte Prioritario",
       "Actualización de Apps",
       "Alertas predictivas IA",
       "Control de productividad",
@@ -46,7 +46,7 @@ const plans = [
     icon: Zap,
     price: "USD 900",
     period: "/ mes",
-    devices: " hasta 75 equipos",
+    devices: " hasta 50 equipos",
     description: "Seguridad ofensiva para empresas que no pueden parar.",
     features: [
       "Todo lo de Crecimiento",
