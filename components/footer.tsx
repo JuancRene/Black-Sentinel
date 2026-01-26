@@ -54,7 +54,8 @@ export function Footer() {
             </div>
 
             <p className="text-zinc-400 leading-relaxed max-w-sm">
-              Protección cibernética de grado militar simplificada para tu empresa. 
+              Protección cibernética de grado militar simplificada para tu empresa.
+              <b>
               Monitoreo activo, respuesta automática y tranquilidad absoluta.
             </p>
 
