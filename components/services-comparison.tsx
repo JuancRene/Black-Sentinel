@@ -22,7 +22,7 @@ const comparisonData = [
       { name: "Control de Productividad", esencial: true, crecimiento: true, profesional: true, corporativo: "Personalizable" },
       { name: "Gestión de Parches", esencial: true, crecimiento: true, profesional: true, corporativo: true },
       { name: "Seguridad de Email", esencial: true, crecimiento: true, profesional: true, corporativo: true },
-      { name: "Filtrado Web y DNS", esencial: false, crecimiento: true, profesional: true, corporativo: true },
+      { name: "Filtrado Web y DNS", esencial: true, crecimiento: true, profesional: true, corporativo: true },
       { name: "Auditoría de Contraseñas", esencial: false, crecimiento: true, profesional: true, corporativo: true },
     ],
   },
@@ -31,8 +31,8 @@ const comparisonData = [
     icon: Crown,
     features: [
       { name: "Garantía de Rollback", esencial: false, crecimiento: false, profesional: true, corporativo: true },
-      { name: "Monitoreo Dark Web", esencial: false, crecimiento: false, profesional: true, corporativo: true },
-      { name: "Control de Puertos USB", esencial: false, crecimiento: false, profesional: true, corporativo: true },
+      { name: "Monitoreo Dark Web", esencial: false, crecimiento: true, profesional: true, corporativo: true },
+      { name: "Control de Puertos USB", esencial: false, crecimiento: true, profesional: true, corporativo: true },
     ],
   },
   {
