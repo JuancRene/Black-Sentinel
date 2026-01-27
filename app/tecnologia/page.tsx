@@ -194,7 +194,7 @@ export default function TecnologiaPage() {
           <div className="mt-12 text-center">
             <p className="text-gray-500 text-sm">
               Esta combinación de tecnologías nos permite ofrecerte seguridad de nivel empresarial,<br />
-              personalizada para las necesidades de tu Negocio.
+              personalizada para las necesidades de tu negocio.
             </p>
           </div>
         </div>
