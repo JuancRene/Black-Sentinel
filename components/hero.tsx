@@ -151,11 +151,14 @@ export function Hero() {
             </h1>
             
             <p className="text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto leading-relaxed font-light">
-              Monitoreo de ciberseguridad gestionado por humanos e IA.
-              <span className="block text-white font-medium mt-2">
-                 {"Seguridad gestionada"}/br{"Nosotros nos ocupamos de la tecnología, vos de tu negocio."}
-              </span>
-            </p>
+  Monitoreo de ciberseguridad gestionado por humanos e IA.
+  <span className="block text-white font-medium mt-2">
+    Seguridad gestionada
+    <br />
+    Nosotros nos ocupamos de la tecnología, vos de tu negocio.
+  </span>
+</p>
+
           </div>
 
           {/* --- CTAS --- */}
