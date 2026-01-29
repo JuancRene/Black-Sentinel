@@ -9,7 +9,8 @@ const plans = [
   {
     name: "Esencial",
     icon: Users,
-    price: "USD 25",
+    price: "USD 30",
+    priceNote: "Primeros 3 meses USD 25",
     period: "/ equipo / mes",
     devices: "",
     description: "Seguridad gestionada y mantenimiento automático para trabajar sin preocupaciones.",
@@ -211,6 +212,11 @@ export function Pricing() {
                                 {plan.price}
                             </span>
                         </div>
+                        {plan.priceNote && (
+                            <div className="text-xs text-[#0AB9C3] font-semibold mb-2 bg-[#0AB9C3]/10 px-2 py-1 rounded w-fit">
+                                {plan.priceNote}
+                            </div>
+                        )}
                         <span className="text-xs text-zinc-500 font-medium uppercase tracking-wide">
                             {plan.period}
                         </span>
