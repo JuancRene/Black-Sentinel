@@ -48,8 +48,8 @@ const comparisonData = [
       },
       {
         name: "Soporte Técnico",
-        esencial: "Prioritario",
-        crecimiento: "Prioritario",
+        esencial: "24/7",
+        crecimiento: "24/7",
         profesional: "24/7 Dedicado",
         corporativo: "Gerente de Cuenta",
       },
