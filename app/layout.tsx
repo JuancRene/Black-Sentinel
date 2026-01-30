@@ -60,31 +60,3 @@ export const metadata: Metadata = {
     type: "website",
   },
 }
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="es" suppressHydrationWarning className="scroll-smooth">
-      <body 
-        className={`${inter.className} min-h-screen bg-[#050505] text-zinc-50 antialiased selection:bg-[#0AB9C3]/30 selection:text-white`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-          
-          {/* NOX flota sobre todas las páginas */}
-          <NoxFloatButton />
-          
-          <Analytics />
-        </ThemeProvider>
-      </body>
-    </html>
-  )
-}
