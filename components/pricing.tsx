@@ -46,7 +46,7 @@ const plans = [
       "Reporte quincenal consolidado",
     ],
     highlight: false,
-    cta: "Empezar Crecimiento",
+    cta: "Elegir Crecimiento",
   },
   {
     name: "Profesional",
