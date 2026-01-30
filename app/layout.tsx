@@ -4,7 +4,6 @@ import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { NoxFloatButton } from "@/components/nox-float-button"
 
 // Optimizamos la carga de la fuente
 const inter = Inter({ 
@@ -27,8 +26,7 @@ export const metadata: Metadata = {
     "SOC as a service", 
     "protección ransomware", 
     "seguridad pymes", 
-    "antivirus gestionado",
-    "NOX IA"
+    "antivirus gestionado"
   ],
   authors: [{ name: "BlackSentinel Team" }],
   creator: "BlackSentinel",
@@ -42,15 +40,14 @@ export const metadata: Metadata = {
     icon: "/logo-blacksentinel-icon.png",
     apple: "/logo-blacksentinel-icon.png",
   },
-  // Open Graph para que se vea bien al compartir en redes
   openGraph: {
     title: "BlackSentinel | Tu negocio blindado",
     description: "Monitoreo 24/7, respuesta a incidentes y prevención de amenazas con IA.",
-    url: "https://blacksentinel.com", // Reemplaza con tu URL real cuando la tengas
+    url: "https://blacksentinel.com",
     siteName: "BlackSentinel",
     images: [
       {
-        url: "/og-image.jpg", // Deberías crear una imagen de 1200x630px para esto
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "BlackSentinel Security Dashboard",
@@ -59,4 +56,21 @@ export const metadata: Metadata = {
     locale: "es_AR",
     type: "website",
   },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="es" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          {children}
+          <Analytics />
+        </ThemeProvider>
+      </body>
+    </html>
+  )
 }

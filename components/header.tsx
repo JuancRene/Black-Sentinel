@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, ChevronRight, Sparkles } from "lucide-react"
+import { Menu, X, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
@@ -101,20 +101,7 @@ export function Header() {
                 ))}
               </div>
 
-              {/* CTA BUTTON */}
-              <Link href="/nox">
-                <Button
-                  className={`group relative overflow-hidden bg-transparent border border-[#0AB9C3]/50 text-[#0AB9C3] hover:text-black font-semibold px-6 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_-5px_#0AB9C3] ${
-                    isActiveLink("/nox") ? "bg-[#0AB9C3]/10" : ""
-                  }`}
-                >
-                  <div className="absolute inset-0 bg-[#0AB9C3] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                  <span className="relative flex items-center gap-2">
-                    Conoce a NOX
-                    <Sparkles className="w-4 h-4" />
-                  </span>
-                </Button>
-              </Link>
+
             </nav>
 
             {/* --- MOBILE MENU TOGGLE --- */}
@@ -162,21 +149,7 @@ export function Header() {
             </Link>
           ))}
 
-          <div className="h-px bg-white/10 my-4" />
 
-          <Link
-            href="/nox"
-            className="w-full"
-          >
-            <div className="relative w-full p-4 rounded-xl bg-gradient-to-r from-[#0AB9C3]/20 to-transparent border border-[#0AB9C3]/30 flex items-center justify-between group overflow-hidden">
-                <div className="absolute inset-0 bg-[#0AB9C3]/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
-                <span className="relative font-bold text-[#0AB9C3] flex items-center gap-2">
-                    <Sparkles className="w-5 h-5" />
-                    Conoce a NOX
-                </span>
-                <ChevronRight className="relative w-5 h-5 text-[#0AB9C3] group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
         </nav>
 
         {/* Footer info en móvil */}

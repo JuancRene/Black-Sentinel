@@ -18,7 +18,7 @@ const testimonials = [
     role: "Socia, Estudio Contable SM",
     image: null,
     content:
-      "Manejamos datos muy sensibles de terceros. Necesitábamos algo más que un antivirus gratis. La respuesta del equipo humano de NOX cuando tuvimos una duda fue inmediata.",
+      "Manejamos datos muy sensibles de terceros. Necesitábamos algo más que un antivirus gratis. La respuesta del equipo técnico cuando tuvimos una duda fue inmediata.",
     rating: 5,
   },
   {
