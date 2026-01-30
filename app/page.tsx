@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { Stats } from "@/components/stats"
-import { NoxTeaser } from "@/components/nox-teaser"
 import { WhyBlackSentinel } from "@/components/why-blacksentinel"
 import { HowWeWork } from "@/components/how-we-work"
 import { Pricing } from "@/components/pricing"
@@ -14,7 +13,6 @@ export default function Home() {
       <Header />
       <Hero />
       <Stats />
-      <NoxTeaser />
       <WhyBlackSentinel />
       <HowWeWork />
       <Pricing />

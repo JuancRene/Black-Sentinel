@@ -41,15 +41,15 @@ const comparisonData = [
     features: [
       {
         name: "Reportes",
-        esencial: "Semanal",
-        crecimiento: "Semanal",
+        esencial: "Quincenal",
+        crecimiento: "Quincenal",
         profesional: "Ejecutivo",
         corporativo: "A medida",
       },
       {
         name: "Soporte Técnico",
-        esencial: "Prioritario",
-        crecimiento: "Prioritario",
+        esencial: "24/7",
+        crecimiento: "24/7",
         profesional: "24/7 Dedicado",
         corporativo: "Gerente de Cuenta",
       },
