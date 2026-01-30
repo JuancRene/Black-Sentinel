@@ -10,7 +10,7 @@ const plans = [
     name: "Esencial",
     icon: Users,
     price: "USD 30",
-    priceNote: "Primeros 3 meses USD 25",
+    priceNote: "Primer mes GRATIS",
     period: "/ equipo / mes",
     devices: "",
     description: "Seguridad gestionada y mantenimiento automático para trabajar sin preocupaciones.",
@@ -27,7 +27,7 @@ const plans = [
     ],
     highlight: true,
     badge: "RECOMENDADO",
-    cta: "Elegir Esencial",
+    cta: "Obten un mes GRATIS",
   },
   {
     name: "Crecimiento",
