@@ -158,11 +158,11 @@ export function Stats() {
           }`}
         >
             {/* Connector Line */}
-            <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-px h-10 bg-gradient-to-b from-transparent to-[#0AB9C3]/50" />
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-px h-10 bg-gradient-to-b from-transparent to-[#39CFE3]/50" />
 
-            <div className="bg-zinc-900/50 border border-[#0AB9C3]/30 rounded-2xl p-8 backdrop-blur-sm relative overflow-hidden group hover:border-[#0AB9C3]/60 transition-colors duration-500">
+            <div className="bg-zinc-900/50 border border-[#39CFE3]/30 rounded-2xl p-8 backdrop-blur-sm relative overflow-hidden group hover:border-[#39CFE3]/60 transition-colors duration-500">
                 {/* Glow cyan detrás */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#0AB9C3]/5 blur-2xl rounded-full opacity-50 pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#39CFE3]/5 blur-2xl rounded-full opacity-50 pointer-events-none" />
                 
                 <h3 className="text-2xl font-bold text-white mb-2 relative z-10">
                     No dejes que esto te pase.
@@ -171,7 +171,7 @@ export function Stats() {
                     BlackSentinel neutraliza estas amenazas antes de que toquen tu sistema.
                 </p>
                 
-                <div className="inline-flex items-center gap-2 text-[#0AB9C3] font-bold text-lg relative z-10">
+                <div className="inline-flex items-center gap-2 text-[#39CFE3] font-bold text-lg relative z-10">
                     <CheckCircle2 className="w-5 h-5" />
                     <span>Tu seguridad, garantizada.</span>
                 </div>

@@ -16,7 +16,7 @@
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    /* BRAND COLOR: #0AB9C3 (Cyber Cyan) */
+    /* BRAND COLOR: #39CFE3 (Cyber Cyan) */
     /* HSL: 183deg, 90%, 40% */
     --primary: 183 90% 40%;
     --primary-foreground: 0 0% 98%;
@@ -78,12 +78,12 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #0AB9C3; /* Brand Color */
+    background: #39CFE3; /* Brand Color */
   }
 
   /* --- SELECCIÓN DE TEXTO --- */
   ::selection {
-    background-color: rgba(10, 185, 195, 0.2);
+    background-color: rgba(57, 207, 227, 0.2);
     color: #ffffff;
   }
 }
@@ -104,7 +104,7 @@
 
   /* Textos con gradiente y brillo */
   .text-glow {
-    text-shadow: 0 0 20px rgba(10, 185, 195, 0.5);
+    text-shadow: 0 0 20px rgba(57, 207, 227, 0.5);
   }
 }
 
@@ -119,12 +119,12 @@
   0%, 100% { 
     opacity: 0.4; 
     transform: scale(1);
-    box-shadow: 0 0 0 rgba(10, 185, 195, 0);
+    box-shadow: 0 0 0 rgba(57, 207, 227, 0);
   }
   50% { 
     opacity: 0.8; 
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(10, 185, 195, 0.3);
+    box-shadow: 0 0 20px rgba(57, 207, 227, 0.3);
   }
 }
 

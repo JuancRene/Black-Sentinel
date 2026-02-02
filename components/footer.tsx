@@ -34,8 +34,8 @@ export function Footer() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
       
       {/* 2. Top Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#0AB9C3]/50 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#0AB9C3]/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#39CFE3]/50 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#39CFE3]/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 relative z-10">
         
@@ -45,8 +45,8 @@ export function Footer() {
           {/* BRAND COLUMN (Span 4) */}
           <div className="lg:col-span-4 space-y-6">
             <div className="flex items-center gap-3 group cursor-pointer" onClick={scrollToTop}>
-              <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-zinc-800 to-black border border-white/10 rounded-xl shadow-inner group-hover:border-[#0AB9C3]/50 transition-colors duration-300">
-                <Shield className="w-5 h-5 text-[#0AB9C3]" />
+              <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-zinc-800 to-black border border-white/10 rounded-xl shadow-inner group-hover:border-[#39CFE3]/50 transition-colors duration-300">
+                <Shield className="w-5 h-5 text-[#39CFE3]" />
               </div>
               <span className="text-2xl font-bold text-white tracking-tight">
                 BlackSentinel
@@ -71,10 +71,10 @@ export function Footer() {
 
             {/* Socials */}
             <div className="flex gap-4 pt-2">
-                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-[#0AB9C3] hover:border-[#0AB9C3] transition-all duration-300">
+                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-[#39CFE3] hover:border-[#39CFE3] transition-all duration-300">
                     <MessageCircle className="w-4 h-4" />
                 </a>
-                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-[#0AB9C3] hover:border-[#0AB9C3] transition-all duration-300">
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-zinc-900 border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-[#39CFE3] hover:border-[#39CFE3] transition-all duration-300">
                     <Instagram className="w-4 h-4" />
                 </a>
             </div>
@@ -84,16 +84,16 @@ export function Footer() {
           {/* CONTACT COLUMN (Span 3) */}
           <div className="lg:col-span-3">
              <h4 className="text-white font-semibold mb-6 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0AB9C3]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#39CFE3]"></span>
                 Contacto
             </h4>
             <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-[#0AB9C3] mt-0.5 shrink-0" />
+                    <Mail className="w-5 h-5 text-[#39CFE3] mt-0.5 shrink-0" />
                     <span className="text-zinc-400 text-sm">soporte@blacksentinel.com</span>
                 </li>
                 <li className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-[#0AB9C3] mt-0.5 shrink-0" />
+                    <MapPin className="w-5 h-5 text-[#39CFE3] mt-0.5 shrink-0" />
                     <span className="text-zinc-400 text-sm">Parana,<br/>Entre Rios, Argentina</span>
                 </li>
                 
@@ -119,7 +119,7 @@ export function Footer() {
       {/* --- SCROLL TO TOP BUTTON --- */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-[#0AB9C3] text-black shadow-[0_0_20px_rgba(10,185,195,0.4)] hover:shadow-[0_0_30px_rgba(10,185,195,0.6)] hover:-translate-y-1 transition-all duration-300 ${
+        className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-[#39CFE3] text-black shadow-[0_0_20px_rgba(57,207,227,0.4)] hover:shadow-[0_0_30px_rgba(57,207,227,0.6)] hover:-translate-y-1 transition-all duration-300 ${
             showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
         }`}
         aria-label="Volver arriba"

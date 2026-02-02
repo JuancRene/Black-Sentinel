@@ -73,8 +73,8 @@ export function Hero() {
 
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        // Color Cyan exacto de la marca (#0AB9C3)
-        ctx.fillStyle = `rgba(10, 185, 195, ${particle.opacity})`
+        // Color Cyan exacto de la marca (#39CFE3)
+        ctx.fillStyle = `rgba(57, 207, 227, ${particle.opacity})`
         ctx.fill()
       })
 
@@ -104,7 +104,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
         
         {/* Luz Ambiental (Spotlight superior) */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#0AB9C3]/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#39CFE3]/10 blur-[120px] rounded-full pointer-events-none" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
@@ -112,9 +112,9 @@ export function Hero() {
           
           {/* --- BADGE SUPERIOR --- */}
           <div className="flex justify-center mb-8 animate-fade-in opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0AB9C3]/30 bg-[#0AB9C3]/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(10,185,195,0.2)]">
-               <Shield className="w-3 h-3 text-[#0AB9C3]" />
-               <span className="text-xs font-semibold text-[#0AB9C3] uppercase tracking-wider">Sistema de Protección Activo</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#39CFE3]/30 bg-[#39CFE3]/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(57,207,227,0.2)]">
+               <Shield className="w-3 h-3 text-[#39CFE3]" />
+               <span className="text-xs font-semibold text-[#39CFE3] uppercase tracking-wider">Sistema de Protección Activo</span>
             </div>
           </div>
 
@@ -122,11 +122,11 @@ export function Hero() {
           <div className="flex justify-center mb-10 relative animate-fade-in opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
             <div className="relative group cursor-default">
               {/* Anillos de radar */}
-              <div className="absolute inset-0 rounded-full border border-[#0AB9C3]/20 animate-[spin_10s_linear_infinite]" />
-              <div className="absolute -inset-4 rounded-full border border-[#0AB9C3]/10 border-dashed animate-[spin_15s_linear_infinite_reverse]" />
+              <div className="absolute inset-0 rounded-full border border-[#39CFE3]/20 animate-[spin_10s_linear_infinite]" />
+              <div className="absolute -inset-4 rounded-full border border-[#39CFE3]/10 border-dashed animate-[spin_15s_linear_infinite_reverse]" />
               
               {/* Glow central */}
-              <div className="absolute inset-0 bg-[#0AB9C3]/20 blur-2xl rounded-full animate-pulse" />
+              <div className="absolute inset-0 bg-[#39CFE3]/20 blur-2xl rounded-full animate-pulse" />
               
               {/* Logo Image */}
               <div className="relative w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full border border-white/5">
@@ -135,7 +135,7 @@ export function Hero() {
                   alt="BlackSentinel"
                   width={160}
                   height={160}
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_0_15px_rgba(10,185,195,0.8)]"
+                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_0_15px_rgba(57,207,227,0.8)]"
                 />
               </div>
             </div>
@@ -168,7 +168,7 @@ export function Hero() {
             <Button
               size="lg"
               onClick={handleCTA}
-              className="relative h-14 px-8 bg-[#0AB9C3] hover:bg-[#09a0a9] text-black font-bold text-lg rounded-xl shadow-[0_0_20px_-5px_rgba(10,185,195,0.5)] hover:shadow-[0_0_30px_-5px_rgba(10,185,195,0.7)] transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto overflow-hidden group"
+              className="relative h-14 px-8 bg-[#39CFE3] hover:bg-[#23BECF] text-black font-bold text-lg rounded-xl shadow-[0_0_20px_-5px_rgba(57,207,227,0.5)] hover:shadow-[0_0_30px_-5px_rgba(57,207,227,0.7)] transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto overflow-hidden group"
             >
                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 skew-y-12" />
                <span className="relative flex items-center gap-2">
@@ -184,7 +184,7 @@ export function Hero() {
               onClick={() => window.open("https://wa.me/5493416369108", "_blank")}
               className="h-14 px-8 border-zinc-700 text-white hover:bg-zinc-800 hover:text-white font-medium text-lg rounded-xl transition-all duration-300 w-full sm:w-auto hover:-translate-y-1"
             >
-              <Phone className="w-5 h-5 mr-2 text-[#0AB9C3]" />
+              <Phone className="w-5 h-5 mr-2 text-[#39CFE3]" />
               Hablar por WhatsApp
             </Button>
           </div>
@@ -199,7 +199,7 @@ export function Hero() {
               { text: "Sin contratos largos", icon: Shield },
             ].map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 group cursor-default">
-                <item.icon className="w-5 h-5 text-[#0AB9C3] group-hover:scale-110 transition-transform" />
+                <item.icon className="w-5 h-5 text-[#39CFE3] group-hover:scale-110 transition-transform" />
                 <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors">
                   {item.text}
                 </span>
