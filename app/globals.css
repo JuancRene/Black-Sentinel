@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  /* Fuente Inter */
+  --font-sans: 'Inter', 'Inter Fallback';
+
   /* Mapeo de colores para que Tailwind v4 entienda tus variables */
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));

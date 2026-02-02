@@ -5,11 +5,12 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
-// Optimizamos la carga de la fuente
+// Optimizamos la carga de la fuente Inter v4.1
 const inter = Inter({ 
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 })
 
 export const metadata: Metadata = {
