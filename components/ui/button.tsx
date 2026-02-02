@@ -13,13 +13,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#0AB9C3] text-black shadow-[0_0_20px_-5px_rgba(10,185,195,0.4)] hover:bg-[#09a0a9] hover:shadow-[0_0_30px_-5px_rgba(10,185,195,0.6)] hover:-translate-y-0.5",
+          "bg-[#39CFE3] text-black shadow-[0_0_20px_-5px_rgba(57,207,227,0.4)] hover:bg-[#09a0a9] hover:shadow-[0_0_30px_-5px_rgba(57,207,227,0.6)] hover:-translate-y-0.5",
         
         destructive:
           "bg-red-900/20 text-red-200 border border-red-900/50 hover:bg-red-900/40 hover:border-red-500 hover:text-white shadow-[0_0_15px_-5px_rgba(239,68,68,0.2)]",
         
         outline:
-          "border-2 border-white/10 bg-transparent text-zinc-300 hover:border-[#0AB9C3] hover:text-[#0AB9C3] hover:bg-[#0AB9C3]/5 hover:shadow-[0_0_15px_-5px_rgba(10,185,195,0.3)]",
+          "border-2 border-white/10 bg-transparent text-zinc-300 hover:border-[#39CFE3] hover:text-[#39CFE3] hover:bg-[#39CFE3]/5 hover:shadow-[0_0_15px_-5px_rgba(57,207,227,0.3)]",
         
         secondary:
           "bg-zinc-800 text-zinc-100 hover:bg-zinc-700 hover:text-white border border-white/5",
@@ -27,10 +27,10 @@ const buttonVariants = cva(
         ghost:
           "text-zinc-400 hover:bg-white/5 hover:text-white",
         
-        link: "text-[#0AB9C3] underline-offset-4 hover:underline",
+        link: "text-[#39CFE3] underline-offset-4 hover:underline",
         
         // Variante extra para efectos de "Brillo" puro sin fondo
-        glow: "text-[#0AB9C3] bg-[#0AB9C3]/10 hover:bg-[#0AB9C3]/20 border border-[#0AB9C3]/20 hover:border-[#0AB9C3]/50 shadow-[0_0_15px_-5px_rgba(10,185,195,0.3)]"
+        glow: "text-[#39CFE3] bg-[#39CFE3]/10 hover:bg-[#39CFE3]/20 border border-[#39CFE3]/20 hover:border-[#39CFE3]/50 shadow-[0_0_15px_-5px_rgba(57,207,227,0.3)]"
       },
       size: {
         default: "h-11 px-6 py-2 has-[>svg]:px-4",

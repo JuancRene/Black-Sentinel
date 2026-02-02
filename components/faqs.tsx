@@ -71,7 +71,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
     <div
       className={`group border rounded-xl overflow-hidden transition-all duration-300 ${
         isOpen
-          ? "border-[#0AB9C3] bg-[#0AB9C3]/5 shadow-[0_0_20px_-10px_rgba(10,185,195,0.3)]"
+          ? "border-[#39CFE3] bg-[#39CFE3]/5 shadow-[0_0_20px_-10px_rgba(57,207,227,0.3)]"
           : "border-zinc-800 bg-zinc-900/30 hover:border-zinc-700"
       }`}
     >
@@ -84,7 +84,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         </span>
         <div
           className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${
-            isOpen ? "bg-[#0AB9C3] rotate-180" : "bg-zinc-800 group-hover:bg-zinc-700"
+            isOpen ? "bg-[#39CFE3] rotate-180" : "bg-zinc-800 group-hover:bg-zinc-700"
           }`}
         >
           <ChevronDown
@@ -100,7 +100,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         <div className="overflow-hidden">
           <div className="px-6 pb-6 pt-0 text-zinc-400 leading-relaxed border-t border-transparent">
              {/* Línea decorativa sutil solo cuando está abierto */}
-             <div className="w-full h-px bg-gradient-to-r from-[#0AB9C3]/20 to-transparent mb-4"></div>
+             <div className="w-full h-px bg-gradient-to-r from-[#39CFE3]/20 to-transparent mb-4"></div>
             {answer}
           </div>
         </div>
@@ -113,17 +113,17 @@ export function FAQs() {
   return (
     <section id="faqs" className="relative py-24 px-4 bg-[#050505] overflow-hidden">
       {/* Fondo decorativo sutil (Radial Gradient) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0AB9C3]/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#39CFE3]/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-3xl mx-auto z-10">
         <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center justify-center px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm mb-2">
-            <ShieldCheck className="w-4 h-4 text-[#0AB9C3] mr-2" />
+            <ShieldCheck className="w-4 h-4 text-[#39CFE3] mr-2" />
             <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Dudas Frecuentes</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-            Todo lo que necesitás saber sobre <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AB9C3] to-teal-600">tu seguridad</span>
+            Todo lo que necesitás saber sobre <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#39CFE3] to-teal-600">tu seguridad</span>
           </h2>
           
           <p className="text-lg text-zinc-400 max-w-xl mx-auto">

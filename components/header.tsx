@@ -52,7 +52,7 @@ export function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
           isScrolled
-            ? "bg-[#050505]/80 backdrop-blur-xl border-[#0AB9C3]/20 py-3 shadow-[0_0_20px_-10px_rgba(10,185,195,0.2)]"
+            ? "bg-[#050505]/80 backdrop-blur-xl border-[#39CFE3]/20 py-3 shadow-[0_0_20px_-10px_rgba(57,207,227,0.2)]"
             : "bg-transparent border-transparent py-5"
         }`}
       >
@@ -66,7 +66,7 @@ export function Header() {
             >
               <div className="relative w-10 h-10 sm:w-12 sm:h-12">
                  {/* Efecto de glow detrás del logo */}
-                <div className="absolute inset-0 bg-[#0AB9C3] rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-[#39CFE3] rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
                 <Image
                   src="/logo-blacksentinel-icon.png"
                   alt="BlackSentinel Logo"
@@ -93,7 +93,7 @@ export function Header() {
                         </span>
                         {/* Indicador activo (punto brillante) */}
                         {isActiveLink(link.href) && (
-                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#0AB9C3] rounded-full shadow-[0_0_10px_#0AB9C3]" />
+                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#39CFE3] rounded-full shadow-[0_0_10px_#39CFE3]" />
                         )}
                         {/* Fondo hover sutil */}
                         <span className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center" />
@@ -130,7 +130,7 @@ export function Header() {
         }`}
       >
         {/* Background Effects dentro del menú */}
-        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#0AB9C3]/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#39CFE3]/10 blur-[100px] rounded-full pointer-events-none" />
         
         <nav className="flex flex-col gap-2 relative z-10">
           {navLinks.map((link, idx) => (
@@ -142,10 +142,10 @@ export function Header() {
               }`}
               style={{ transitionDelay: `${idx * 50}ms` }}
             >
-              <span className={`text-lg font-medium ${isActiveLink(link.href) ? "text-[#0AB9C3]" : "text-zinc-300 group-hover:text-white"}`}>
+              <span className={`text-lg font-medium ${isActiveLink(link.href) ? "text-[#39CFE3]" : "text-zinc-300 group-hover:text-white"}`}>
                 {link.label}
               </span>
-              <ChevronRight className={`w-5 h-5 text-zinc-500 group-hover:text-[#0AB9C3] transition-colors ${isActiveLink(link.href) ? "text-[#0AB9C3]" : ""}`} />
+              <ChevronRight className={`w-5 h-5 text-zinc-500 group-hover:text-[#39CFE3] transition-colors ${isActiveLink(link.href) ? "text-[#39CFE3]" : ""}`} />
             </Link>
           ))}
 

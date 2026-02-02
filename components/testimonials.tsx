@@ -91,7 +91,7 @@ export function Testimonials() {
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            Ellos ya están <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AB9C3] to-teal-500">protegidos</span>
+            Ellos ya están <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#39CFE3] to-teal-500">protegidos</span>
           </h2>
         </div>
 
@@ -104,12 +104,12 @@ export function Testimonials() {
           </div>
 
           <div 
-            className="relative bg-[#0A0A0A] border border-zinc-800 rounded-3xl p-8 sm:p-12 min-h-[350px] flex flex-col justify-center overflow-hidden group hover:border-[#0AB9C3]/30 transition-colors duration-500"
+            className="relative bg-[#0A0A0A] border border-zinc-800 rounded-3xl p-8 sm:p-12 min-h-[350px] flex flex-col justify-center overflow-hidden group hover:border-[#39CFE3]/30 transition-colors duration-500"
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
              {/* Glow effect on hover */}
-             <div className="absolute inset-0 bg-gradient-to-b from-[#0AB9C3]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+             <div className="absolute inset-0 bg-gradient-to-b from-[#39CFE3]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
              {/* Content with Animation Key */}
              <div key={currentIndex} className="relative z-10 animate-fade-in">
@@ -117,7 +117,7 @@ export function Testimonials() {
                 {/* Rating */}
                 <div className="flex justify-center mb-8 gap-1">
                     {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-[#0AB9C3] text-[#0AB9C3] drop-shadow-[0_0_8px_rgba(10,185,195,0.5)]" />
+                    <Star key={i} className="w-5 h-5 fill-[#39CFE3] text-[#39CFE3] drop-shadow-[0_0_8px_rgba(57,207,227,0.5)]" />
                     ))}
                 </div>
 
@@ -133,14 +133,14 @@ export function Testimonials() {
                          <User className="w-6 h-6" />
                     </div>
                     <div className="text-white font-bold text-lg">{testimonials[currentIndex].name}</div>
-                    <div className="text-[#0AB9C3] text-sm font-medium">{testimonials[currentIndex].role}</div>
+                    <div className="text-[#39CFE3] text-sm font-medium">{testimonials[currentIndex].role}</div>
                 </div>
              </div>
 
              {/* Progress Bar (Bottom Line) */}
              <div className="absolute bottom-0 left-0 h-1 bg-zinc-900 w-full">
                 <div 
-                    className="h-full bg-[#0AB9C3] transition-all duration-100 ease-linear shadow-[0_0_10px_#0AB9C3]"
+                    className="h-full bg-[#39CFE3] transition-all duration-100 ease-linear shadow-[0_0_10px_#39CFE3]"
                     style={{ width: `${progress}%` }}
                 />
              </div>
@@ -153,7 +153,7 @@ export function Testimonials() {
                 variant="outline"
                 size="icon"
                 onClick={prevSlide}
-                className="rounded-full w-12 h-12 border-zinc-800 bg-transparent text-zinc-400 hover:text-white hover:border-[#0AB9C3] hover:bg-[#0AB9C3]/10 transition-all"
+                className="rounded-full w-12 h-12 border-zinc-800 bg-transparent text-zinc-400 hover:text-white hover:border-[#39CFE3] hover:bg-[#39CFE3]/10 transition-all"
              >
                 <ChevronLeft className="w-6 h-6" />
              </Button>
@@ -170,7 +170,7 @@ export function Testimonials() {
                         }}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
                             index === currentIndex 
-                                ? "w-8 bg-[#0AB9C3] shadow-[0_0_8px_#0AB9C3]" 
+                                ? "w-8 bg-[#39CFE3] shadow-[0_0_8px_#39CFE3]" 
                                 : "w-2 bg-zinc-700 hover:bg-zinc-500"
                         }`}
                     />
@@ -185,7 +185,7 @@ export function Testimonials() {
                     nextSlide()
                     setIsAutoPlaying(false)
                 }}
-                className="rounded-full w-12 h-12 border-zinc-800 bg-transparent text-zinc-400 hover:text-white hover:border-[#0AB9C3] hover:bg-[#0AB9C3]/10 transition-all"
+                className="rounded-full w-12 h-12 border-zinc-800 bg-transparent text-zinc-400 hover:text-white hover:border-[#39CFE3] hover:bg-[#39CFE3]/10 transition-all"
              >
                 <ChevronRight className="w-6 h-6" />
              </Button>

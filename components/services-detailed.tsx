@@ -123,8 +123,8 @@ export function ServicesDetailed() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
       
       {/* Decorative Glows */}
-      <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-[#0AB9C3]/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-[#0AB9C3]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-[#39CFE3]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-[#39CFE3]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -134,14 +134,14 @@ export function ServicesDetailed() {
             revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0AB9C3]/30 bg-[#0AB9C3]/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(10,185,195,0.2)] mb-6">
-            <Activity className="w-3 h-3 text-[#0AB9C3]" />
-            <span className="text-xs font-semibold text-[#0AB9C3] uppercase tracking-wider">Suite de Seguridad Integral</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#39CFE3]/30 bg-[#39CFE3]/5 backdrop-blur-md shadow-[0_0_15px_-3px_rgba(57,207,227,0.2)] mb-6">
+            <Activity className="w-3 h-3 text-[#39CFE3]" />
+            <span className="text-xs font-semibold text-[#39CFE3] uppercase tracking-wider">Suite de Seguridad Integral</span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
             Todo lo que hacemos <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AB9C3] to-teal-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#39CFE3] to-teal-500">
               por tu tranquilidad
             </span>
           </h2>
@@ -162,35 +162,35 @@ export function ServicesDetailed() {
                 key={service.title}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className={`group relative bg-[#0A0A0A] border border-zinc-800 rounded-2xl p-6 transition-all duration-500 hover:border-[#0AB9C3]/50 hover:shadow-[0_0_30px_-10px_rgba(10,185,195,0.15)] overflow-hidden ${
+                className={`group relative bg-[#0A0A0A] border border-zinc-800 rounded-2xl p-6 transition-all duration-500 hover:border-[#39CFE3]/50 hover:shadow-[0_0_30px_-10px_rgba(57,207,227,0.15)] overflow-hidden ${
                   revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Fondo sutil en hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0AB9C3]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#39CFE3]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Corner Markers (Decoración Tech) */}
-                <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-[#0AB9C3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute top-0 right-0 w-2 h-2 border-r border-t border-[#0AB9C3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 w-2 h-2 border-l border-b border-[#0AB9C3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-[#0AB9C3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-[#39CFE3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 right-0 w-2 h-2 border-r border-t border-[#39CFE3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 w-2 h-2 border-l border-b border-[#39CFE3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-[#39CFE3] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 <div className="relative z-10 flex flex-col h-full">
                   
                   {/* ICONO (Estilo Chip) */}
                   <div className="mb-6 flex justify-between items-start">
-                    <div className="relative w-12 h-12 flex items-center justify-center bg-zinc-900 border border-zinc-700 rounded-lg group-hover:border-[#0AB9C3]/50 group-hover:bg-[#0AB9C3]/10 transition-colors duration-300">
-                      <Icon className="w-6 h-6 text-zinc-400 group-hover:text-[#0AB9C3] transition-colors duration-300" />
+                    <div className="relative w-12 h-12 flex items-center justify-center bg-zinc-900 border border-zinc-700 rounded-lg group-hover:border-[#39CFE3]/50 group-hover:bg-[#39CFE3]/10 transition-colors duration-300">
+                      <Icon className="w-6 h-6 text-zinc-400 group-hover:text-[#39CFE3] transition-colors duration-300" />
                     </div>
                     {/* Decorative ID number */}
-                    <span className="text-[10px] font-mono text-zinc-700 group-hover:text-[#0AB9C3]/50 transition-colors">
+                    <span className="text-[10px] font-mono text-zinc-700 group-hover:text-[#39CFE3]/50 transition-colors">
                         MOD-0{index + 1}
                     </span>
                   </div>
 
                   {/* TEXTO */}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#0AB9C3] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#39CFE3] transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-zinc-400 text-sm mb-6 leading-relaxed flex-grow">
@@ -201,7 +201,7 @@ export function ServicesDetailed() {
                   <div className="space-y-3 mb-6 bg-black/20 p-4 rounded-xl border border-white/5">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs text-zinc-300">
-                         <div className="mt-0.5 w-1 h-1 rounded-full bg-[#0AB9C3]" />
+                         <div className="mt-0.5 w-1 h-1 rounded-full bg-[#39CFE3]" />
                          <span>{feature}</span>
                       </div>
                     ))}
