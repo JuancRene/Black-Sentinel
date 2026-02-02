@@ -68,7 +68,7 @@ export function Header() {
                  {/* Efecto de glow detrás del logo */}
                 <div className="absolute inset-0 bg-[#39CFE3] rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
                 <Image
-                  src="/logo-blacksentinel-icon.png"
+                  src="/logo-blacksentinel.png"
                   alt="BlackSentinel Logo"
                   width={48}
                   height={48}
