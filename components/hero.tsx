@@ -135,7 +135,7 @@ export function Hero() {
                   alt="BlackSentinel"
                   width={260}
                   height={160}
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_0_15px_rgba(57,207,227,0.8)]"
+                  className="w-40 h-40 sm:w-24 sm:h-24 object-contain drop-shadow-[0_0_15px_rgba(57,207,227,0.8)]"
                 />
               </div>
             </div>
