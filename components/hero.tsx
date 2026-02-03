@@ -133,7 +133,7 @@ export function Hero() {
                 <Image
                   src="/logo-blacksentinel-icon.png"
                   alt="BlackSentinel"
-                  width={160}
+                  width={260}
                   height={160}
                   className="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_0_15px_rgba(57,207,227,0.8)]"
                 />
