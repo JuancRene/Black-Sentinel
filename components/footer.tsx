@@ -45,12 +45,15 @@ export function Footer() {
           {/* BRAND COLUMN (Span 4) */}
           <div className="lg:col-span-4 space-y-6">
             <div className="flex items-center gap-3 group cursor-pointer" onClick={scrollToTop}>
-              <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-zinc-800 to-black border border-white/10 rounded-xl shadow-inner group-hover:border-[#39CFE3]/50 transition-colors duration-300">
-                <Shield className="w-5 h-5 text-[#39CFE3]" />
+              <div className="relative h-10">
+                <Image
+                  src="/logo-blacksentinel.png"
+                  alt="BlackSentinel"
+                  width={180}
+                  height={40}
+                  className="h-full w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
-              <span className="text-2xl font-bold text-white tracking-tight">
-                BlackSentinel
-              </span>
             </div>
 
            <p className="text-zinc-400 leading-relaxed max-w-sm">
