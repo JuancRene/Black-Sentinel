@@ -129,15 +129,16 @@ export function Hero() {
               <div className="absolute inset-0 bg-[#39CFE3]/20 blur-2xl rounded-full animate-pulse" />
               
               {/* Logo Image */}
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full border border-white/5">
-                <Image
-                  src="/logo-blacksentinel-icon.png"
-                  alt="BlackSentinel"
-                  width={160}
-                  height={160}
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain drop-shadow-[0_0_15px_rgba(57,207,227,0.8)]"
-                />
-              </div>
+              <div className="relative w-40 h-40 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full border border-white/5">
+  <Image
+    src="/logo-blacksentinel-icon.png"
+    alt="BlackSentinel"
+    fill
+    className="object-contain p-6 drop-shadow-[0_0_18px_rgba(57,207,227,0.9)]"
+    priority
+  />
+</div>
+
             </div>
           </div>
 
