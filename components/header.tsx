@@ -61,22 +61,24 @@ export function Header() {
             
             {/* --- LOGO --- */}
             <Link
-              href="/"
-              className="relative flex items-center gap-3 group z-50"
-            >
-              <div className="relative h-8 sm:h-10">
-                 {/* Efecto de glow detrás del logo */}
-                <div className="absolute inset-0 bg-[#39CFE3] rounded-lg blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
-                <Image
-                  src="/logo-blacksentinel.png"
-                  alt="BlackSentinel"
-                  width={200}
-                  height={120}
-                  className="relative h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-                  priority
-                />
-              </div>
-            </Link>
+  href="/"
+  className="relative flex items-center gap-3 group z-50"
+>
+  <div className="relative h-14 sm:h-18 lg:h-20">
+    {/* Glow */}
+    <div className="absolute inset-0 bg-[#39CFE3] rounded-lg blur-2xl opacity-25 group-hover:opacity-50 transition-opacity duration-500" />
+    
+    <Image
+      src="/logo-blacksentinel.png"
+      alt="BlackSentinel"
+      width={240}
+      height={140}
+      className="relative h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+      priority
+    />
+  </div>
+</Link>
+
 
             {/* --- DESKTOP NAVIGATION --- */}
             <nav className="hidden md:flex items-center gap-1">
