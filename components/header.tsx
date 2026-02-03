@@ -70,8 +70,8 @@ export function Header() {
                 <Image
                   src="/logo-blacksentinel.png"
                   alt="BlackSentinel"
-                  width={180}
-                  height={40}
+                  width={200}
+                  height={120}
                   className="relative h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   priority
                 />
