@@ -62,22 +62,22 @@ export function Header() {
             {/* --- LOGO --- */}
             <Link
   href="/"
-  className="relative flex items-center gap-3 group z-50"
+  className="relative flex items-center group z-50"
 >
-  <div className="relative h-14 sm:h-18 lg:h-20">
+  <div className="relative h-16 sm:h-20 lg:h-24 w-auto">
     {/* Glow */}
-    <div className="absolute inset-0 bg-[#39CFE3] rounded-lg blur-2xl opacity-25 group-hover:opacity-50 transition-opacity duration-500" />
-    
+    <div className="absolute inset-0 bg-[#39CFE3] blur-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500" />
+
     <Image
       src="/logo-blacksentinel.png"
       alt="BlackSentinel"
-      width={240}
-      height={140}
-      className="relative h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+      fill
+      className="relative object-contain transition-transform duration-500 group-hover:scale-105"
       priority
     />
   </div>
 </Link>
+
 
 
             {/* --- DESKTOP NAVIGATION --- */}
