@@ -45,12 +45,12 @@ export function Footer() {
           {/* BRAND COLUMN (Span 4) */}
           <div className="lg:col-span-4 space-y-6">
             <div className="flex items-center gap-3 group cursor-pointer" onClick={scrollToTop}>
-              <div className="relative h-16">
+              <div className="relative h-32">
                 <Image
                   src="/logo-blacksentinel.png"
                   alt="BlackSentinel"
-                  width={320}
-                  height={64}
+                  width={640}
+                  height={128}
                   className="h-full w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
