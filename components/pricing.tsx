@@ -113,7 +113,7 @@ export function Pricing() {
   }, [])
 
   const handleCTA = () => {
-    window.open("https://tally.so/r/b5Z2A7", "_blank")
+    window.open("https://wa.me/5493436988390", "_blank")
   }
 
   return (
