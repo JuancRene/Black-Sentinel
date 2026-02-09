@@ -33,7 +33,7 @@ export function FinalCTA() {
   }
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/5493416369108", "_blank")
+    window.open("https://wa.me/5493436988390", "_blank")
   }
 
   return (

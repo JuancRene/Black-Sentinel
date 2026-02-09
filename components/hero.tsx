@@ -182,7 +182,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => window.open("https://wa.me/5493416369108", "_blank")}
+              onClick={() => window.open("https://wa.me/5493436988390", "_blank")}
               className="h-14 px-8 border-zinc-700 text-white hover:bg-zinc-800 hover:text-white font-medium text-lg rounded-xl transition-all duration-300 w-full sm:w-auto hover:-translate-y-1"
             >
               <Phone className="w-5 h-5 mr-2 text-[#39CFE3]" />
